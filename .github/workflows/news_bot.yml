@@ -1,0 +1,72 @@
+name: CyberBrief News Digest
+
+on:
+  schedule:
+    # All times UTC. Two entries to cover BST (UTC+1) and GMT (UTC+0).
+    # The Python timezone guard in main.py ensures only one actually executes.
+
+    # Weekdays (Mon–Fri) 10:00 UK
+    - cron: '0 9 * * 1-5'   # 10:00 BST (summer)
+    - cron: '0 10 * * 1-5'  # 10:00 GMT (winter)
+
+  # Allow manual trigger for testing
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Bypass timezone guard (set to "true" for testing)'
+        required: false
+        default: 'false'
+
+jobs:
+  send-digest:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write  # needed to commit updated sent_history.json
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+          cache: 'pip'
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run CyberBrief
+        env:
+          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          WEBEX_BOT_TOKEN: ${{ secrets.WEBEX_BOT_TOKEN }}
+          WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+          BITLY_API_TOKEN: ${{ secrets.BITLY_API_TOKEN }}
+        run: |
+          if [ "${{ github.event.inputs.force }}" = "true" ]; then
+            python main.py --force
+          else
+            python main.py
+          fi
+
+      - name: Commit updated sent_history.json
+        run: |
+          git config user.name "CyberBrief Bot"
+          git config user.email "actions@github.com"
+          git add sent_history.json engagement.json
+          # Only commit if there are actual changes
+          git diff --cached --quiet || git commit -m "chore: update history [skip ci]"
+          git push
+
+      - name: Notify Telegram on failure
+        if: failure()
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: |
+          curl -s -X POST "https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage" \
+            -d chat_id="${TELEGRAM_CHAT_ID}" \
+            -d parse_mode="HTML" \
+            -d text="⚠️ <b>CyberBrief failed</b>%0ARun: <a href='https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}'>View logs</a>"

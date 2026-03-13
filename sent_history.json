@@ -1,0 +1,86 @@
+{
+  "sent_urls": [
+    "https://www.helpnetsecurity.com/2026/03/12/agentic-attack-chains-infostealers-criminal-markets/",
+    "https://therecord.media/fake-gov-apps-malware-android-brazil",
+    "https://www.bleepingcomputer.com/news/security/canadian-retail-giant-loblaw-notifies-customers-of-data-breach/",
+    "https://www.securityweek.com/cisco-patches-high-severity-ios-xr-vulnerabilities-2/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/rogue_ai_agents_worked_together/",
+    "https://www.infosecurity-magazine.com/news/cloud-attackers-prefer-exploits/",
+    "https://www.securityweek.com/wiz-joins-google-cloud-as-landmark-acquisition-closes/",
+    "https://www.infosecurity-magazine.com/news/blacksanta-edr-killer-targets-hr/",
+    "https://www.darkreading.com/threat-intelligence/blacksanta-edr-killer-hr-workflows",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/09/ransomware_crooks_hit_ev_charger/",
+    "https://www.darkreading.com/threat-intelligence/inc-ransomware-healthcare-oceania",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.securityweek.com/apple-updates-older-ios-versions-to-patch-coruna-exploits/",
+    "https://www.securityweek.com/ally-wordpress-plugin-flaw-exposes-over-200000-websites-to-attacks/",
+    "https://www.securityweek.com/medtech-giant-stryker-crippled-by-iran-linked-hacker-attack/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/11/meta_international_cops_ai_scammers/",
+    "https://www.infosecurity-magazine.com/news/iran-massive-wiper-attack-medtech/",
+    "https://securityaffairs.com/189304/hacktivism/pro-palestinian-hacktivist-group-handala-targets-stryker-in-global-disruption.html",
+    "https://www.infosecurity-magazine.com/news/elastic-cloud-siem-manage-stolen/",
+    "https://therecord.media/us-europol-disrupt-socksescort-network",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.infosecurity-magazine.com/news/shinyhunters-hundreds-websites/",
+    "https://www.infosecurity-magazine.com/news/wordpress-clickfix-infostealer/",
+    "https://cyberscoop.com/digitalmint-ransomware-negotiator-arrest-angelo-martino-extortion/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.bleepingcomputer.com/news/security/us-charges-another-ransomware-negotiator-linked-to-blackcat-attacks/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/10/malware_targeting_hr/",
+    "https://cyberscoop.com/salesforce-experience-cloud-customers-attacks/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/11/us_medtech_firm_stryker_cyberattack_iran/",
+    "https://cyberscoop.com/washington-cybercrime-executive-order-software-security-gap/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.securityweek.com/ciso-conversations-aimee-cardwell/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://www.helpnetsecurity.com/2026/03/12/eurojust-online-fraud-scheme-phishing-germany/",
+    "https://www.securityweek.com/senate-confirms-joshua-rudd-to-lead-nsa-and-us-cyber-command/",
+    "https://www.darkreading.com/threat-intelligence/iran-mois-criminals-cyberattacks",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://securityaffairs.com/189343/data-breach/bell-ambulance-data-breach-impacted-over-238000-people.html",
+    "https://securityaffairs.com/189230/apt/apt28-conducts-long-term-espionage-on-ukrainian-forces-using-custom-malware.html",
+    "https://krebsonsecurity.com/2026/03/iran-backed-hackers-claim-wiper-attack-on-medtech-firm-stryker/",
+    "https://cyberscoop.com/salt-typhoon-china-telecom-hack-impact-new-jersey/",
+    "https://www.bleepingcomputer.com/news/security/veeam-warns-of-critical-flaws-exposing-backup-servers-to-rce-attacks/",
+    "https://securityaffairs.com/189241/security/attackers-exploit-fortigate-devices-to-access-sensitive-network-information.html",
+    "https://www.bleepingcomputer.com/news/security/cisa-orders-feds-to-patch-n8n-rce-flaw-exploited-in-attacks/",
+    "https://www.bleepingcomputer.com/news/security/new-phantomraven-npm-attack-wave-steals-dev-data-via-88-packages/",
+    "https://www.infosecurity-magazine.com/news/france-anssi-ransomware-attack/",
+    "https://www.securityweek.com/the-human-ioc-why-security-professionals-struggle-with-social-vetting/",
+    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://www.securityweek.com/meta-launches-new-protection-tools-as-it-helps-disrupt-scam-centers/",
+    "https://therecord.media/stryker-cyberattack-iran-hackers",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://therecord.media/iran-linked-hackers-claim-cyberattack-albania-parliament",
+    "https://arstechnica.com/security/2026/03/14000-routers-are-infected-by-malware-thats-highly-resistant-to-takedowns/",
+    "https://cyberscoop.com/stryker-cyberattack-iranian-hackers-handala/"
+  ],
+  "last_digest": [
+    {
+      "url": "https://www.helpnetsecurity.com/2026/03/12/eurojust-online-fraud-scheme-phishing-germany/",
+      "source": "Help Net Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/11/meta_international_cops_ai_scammers/",
+      "source": "The Register Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://cyberscoop.com/stryker-cyberattack-iranian-hackers-handala/",
+      "source": "CyberScoop",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/veeam-warns-of-critical-flaws-exposing-backup-servers-to-rce-attacks/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/ally-wordpress-plugin-flaw-exposes-over-200000-websites-to-attacks/",
+      "source": "SecurityWeek",
+      "bitly_id": null
+    }
+  ]
+}
