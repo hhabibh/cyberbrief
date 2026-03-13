@@ -1,35 +1,40 @@
 {
   "sent_urls": [
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
     "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
     "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/"
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/"
   ],
   "last_digest": [
     {
-      "url": "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-      "source": "Help Net Security",
+      "url": "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+      "source": "Bleeping Computer",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+      "url": "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+      "source": "The Register Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
       "source": "SecurityWeek",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-      "source": "Bleeping Computer",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-      "source": "Bleeping Computer",
-      "bitly_id": null
-    },
-    {
-      "url": "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-      "source": "Unit 42 (Palo Alto)",
       "bitly_id": null
     }
   ]
