@@ -237,9 +237,13 @@ def _is_duplicate_topic(title: str, seen_keys: list[str], threshold: int = 2) ->
     return False
 
 
+MAX_PER_SOURCE = 2  # No single feed can contribute more than this many articles
+
+
 def _select_top_articles(candidates: list[dict]) -> list[dict]:
     """
-    Select 5 articles respecting pillar targets and topic diversity.
+    Select 5 articles respecting pillar targets, topic diversity, and a
+    per-source cap (MAX_PER_SOURCE) to prevent any single feed dominating.
     Falls back to top-scored articles if pillar quotas can't be filled.
     """
     candidates.sort(key=lambda a: a["scores"]["total"], reverse=True)
@@ -247,32 +251,52 @@ def _select_top_articles(candidates: list[dict]) -> list[dict]:
     selected = []
     pillar_counts = {p: 0 for p in PILLAR_TARGETS}
     seen_topic_keys: list[str] = []
+    source_counts: dict[str, int] = {}
 
-    # First pass: fill pillar quotas, skipping duplicate topics
+    # First pass: fill pillar quotas, skipping duplicate topics and capping per source
     for article in candidates:
         p = article["pillar"]
+        src = article["source"]
         target = PILLAR_TARGETS.get(p, 1)
         if pillar_counts.get(p, 0) < target:
-            if not _is_duplicate_topic(article["title"], seen_topic_keys):
-                selected.append(article)
-                pillar_counts[p] = pillar_counts.get(p, 0) + 1
-                seen_topic_keys.append(_topic_key(article["title"]))
+            if source_counts.get(src, 0) < MAX_PER_SOURCE:
+                if not _is_duplicate_topic(article["title"], seen_topic_keys):
+                    selected.append(article)
+                    pillar_counts[p] = pillar_counts.get(p, 0) + 1
+                    source_counts[src] = source_counts.get(src, 0) + 1
+                    seen_topic_keys.append(_topic_key(article["title"]))
         if len(selected) == 5:
             break
 
-    # Second pass: fill remaining slots, still skipping duplicate topics
+    # Second pass: fill remaining slots, still skipping duplicate topics and capping per source
     if len(selected) < 5:
         selected_urls = {a["url"] for a in selected}
         for article in candidates:
+            src = article["source"]
             if article["url"] not in selected_urls:
-                if not _is_duplicate_topic(article["title"], seen_topic_keys):
-                    selected.append(article)
-                    selected_urls.add(article["url"])
-                    seen_topic_keys.append(_topic_key(article["title"]))
+                if source_counts.get(src, 0) < MAX_PER_SOURCE:
+                    if not _is_duplicate_topic(article["title"], seen_topic_keys):
+                        selected.append(article)
+                        selected_urls.add(article["url"])
+                        source_counts[src] = source_counts.get(src, 0) + 1
+                        seen_topic_keys.append(_topic_key(article["title"]))
             if len(selected) == 5:
                 break
 
-    # Third pass: if still under 5, relax topic deduplication and just fill by score
+    # Third pass: relax topic dedup but keep per-source cap
+    if len(selected) < 5:
+        selected_urls = {a["url"] for a in selected}
+        for article in candidates:
+            src = article["source"]
+            if article["url"] not in selected_urls:
+                if source_counts.get(src, 0) < MAX_PER_SOURCE:
+                    selected.append(article)
+                    selected_urls.add(article["url"])
+                    source_counts[src] = source_counts.get(src, 0) + 1
+            if len(selected) == 5:
+                break
+
+    # Fourth pass: last resort — relax both topic dedup and per-source cap to reach 5
     if len(selected) < 5:
         selected_urls = {a["url"] for a in selected}
         for article in candidates:
