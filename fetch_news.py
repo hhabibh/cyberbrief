@@ -46,7 +46,7 @@ def load_previous_digest_articles() -> list[dict]:
     return []
 
 
-def save_sent_history(urls: set, articles: list[dict] | None = None) -> None:
+def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: bool = False) -> None:
     existing_data: dict = {}
     if HISTORY_FILE.exists():
         with open(HISTORY_FILE, "r", encoding="utf-8-sig") as f:
@@ -58,17 +58,48 @@ def save_sent_history(urls: set, articles: list[dict] | None = None) -> None:
     trimmed = list(merged)[-500:]
 
     payload: dict = {"sent_urls": trimmed}
-    if articles is not None:
+
+    if is_sunday:
+        # Sunday run: preserve last_digest, clear the weekly accumulation after consuming it
+        payload["last_digest"] = existing_data.get("last_digest", [])
+        payload["last_week_digest"] = []
+    elif articles is not None:
         # Store minimal stubs needed for engagement polling
         payload["last_digest"] = [
             {"url": a["url"], "source": a["source"], "bitly_id": a.get("bitly_id")}
             for a in articles
         ]
-    elif "last_digest" in existing_data:
-        payload["last_digest"] = existing_data["last_digest"]
+        # Accumulate weekly stubs for Sunday leaderboard (keep last 35 = max 7 days × 5)
+        existing_week = existing_data.get("last_week_digest", [])
+        new_stubs = [
+            {
+                "url": a["url"],
+                "title": a["title"],
+                "source": a["source"],
+                "bitly_id": a.get("bitly_id"),
+                "tldr": a.get("tldr", ""),
+                "published": a.get("published"),
+            }
+            for a in articles
+        ]
+        payload["last_week_digest"] = (existing_week + new_stubs)[-35:]
+    else:
+        if "last_digest" in existing_data:
+            payload["last_digest"] = existing_data["last_digest"]
+        if "last_week_digest" in existing_data:
+            payload["last_week_digest"] = existing_data["last_week_digest"]
 
     with open(HISTORY_FILE, "w", encoding="utf-8") as f:
         json.dump(payload, f, indent=2)
+
+
+def load_weekly_digest_articles() -> list[dict]:
+    """Return accumulated article stubs from the current week for Sunday leaderboard."""
+    if HISTORY_FILE.exists():
+        with open(HISTORY_FILE, "r", encoding="utf-8-sig") as f:
+            data = json.load(f)
+        return data.get("last_week_digest", [])
+    return []
 
 
 def _parse_published(entry) -> datetime | None:

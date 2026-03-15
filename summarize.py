@@ -132,6 +132,58 @@ def generate_context_line(articles: list[dict]) -> str:
         return "This week's digest covers the latest developments across cybersecurity, technology, and global events."
 
 
+# Keywords that signal a business/customer-impact article worth generating a talk track for
+_BUSINESS_IMPACT_KEYWORDS = [
+    "breach", "fine", "penalty", "gdpr", "compliance", "regulation", "lawsuit",
+    "supply chain", "ransomware", "data theft", "stolen", "exposed", "leaked",
+    "cost", "billion", "million", "insurance", "liability", "acquisition",
+    "m&a", "settlement", "nis2", "dora", "sec ", "ico", "nist",
+]
+
+
+def _qualifies_for_talk_track(article: dict) -> bool:
+    """Return True if the article has enough business/customer-impact signal."""
+    text = (article.get("title", "") + " " + article.get("rss_summary", "")).lower()
+    tech_business_score = article.get("scores", {}).get("tech_business", 0)
+    if tech_business_score >= 2:
+        return True
+    return any(kw in text for kw in _BUSINESS_IMPACT_KEYWORDS)
+
+
+def generate_talk_track(article: dict) -> str | None:
+    """
+    Generate a single-sentence seller conversation starter for qualifying articles.
+    Returns None if the article doesn't qualify or Groq fails.
+    """
+    if not _qualifies_for_talk_track(article):
+        return None
+
+    body = article.get("full_text") or article.get("rss_summary", "")
+    if not body:
+        return None
+
+    system_prompt = (
+        "You are a cybersecurity sales coach helping security sellers start conversations with clients. "
+        "Write exactly ONE sentence (20–30 words) that a seller could use to open a conversation about this news story. "
+        "Focus on the business risk, regulatory angle, or financial consequence — not technical details. "
+        "Be direct and specific. Plain British English. No fluff. "
+        "Do not start with 'This article' or 'You could say'. Write the talk track directly."
+    )
+
+    user_prompt = (
+        f"Article title: {article['title']}\n"
+        f"Source: {article['source']}\n\n"
+        f"Article text:\n{body[:2000]}\n\n"
+        "Write the single-sentence talk track:"
+    )
+
+    try:
+        return _call_groq(system_prompt, user_prompt, max_tokens=60)
+    except Exception as e:
+        print(f"  ⚠️  Groq talk track failed for '{article['title']}': {e}")
+        return None
+
+
 def summarise_all(articles: list[dict]) -> tuple[list[dict], str]:
     """
     Summarise all articles and generate the context line.
@@ -139,6 +191,7 @@ def summarise_all(articles: list[dict]) -> tuple[list[dict], str]:
     """
     for article in articles:
         article["tldr"] = generate_tldr(article)
+        article["talk_track"] = generate_talk_track(article)
 
     context_line = generate_context_line(articles)
     return articles, context_line

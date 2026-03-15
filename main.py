@@ -23,11 +23,11 @@ from dotenv import load_dotenv
 # Load .env file for local development (no-op in GitHub Actions where secrets are env vars)
 load_dotenv()
 
-from fetch_news import fetch_all_articles, save_sent_history, load_previous_digest_articles
+from fetch_news import fetch_all_articles, save_sent_history, load_previous_digest_articles, load_weekly_digest_articles
 from summarize import summarise_all
-from format_message import format_webex, format_webex_card, format_telegram
+from format_message import format_webex, format_webex_card, format_telegram, format_webex_card_sunday, format_webex_sunday, format_telegram_sunday
 from deliver import send_webex, send_telegram
-from tracking import add_tracking_urls, update_engagement_from_previous_digest, get_source_engagement_scores
+from tracking import add_tracking_urls, update_engagement_from_previous_digest, get_source_engagement_scores, get_weekly_top_articles
 
 LONDON_TZ = pytz.timezone("Europe/London")
 
@@ -38,6 +38,7 @@ SEND_SCHEDULE = {
     2: 10,  # Wednesday 10:00 UK
     3: 10,  # Thursday  10:00 UK
     4: 10,  # Friday    10:00 UK
+    6: 10,  # Sunday    10:00 UK — engagement leaderboard
 }
 
 
@@ -69,6 +70,39 @@ def timezone_guard() -> bool:
     return True
 
 
+def run_sunday_digest():
+    """Fetch weekly top articles by click count and deliver the Sunday leaderboard digest."""
+    print("📊 Sunday digest — fetching weekly top articles...")
+    weekly_articles = load_weekly_digest_articles()
+    if not weekly_articles:
+        print("⚠️  No weekly articles accumulated. Nothing to send.")
+        sys.exit(0)
+
+    top_articles = get_weekly_top_articles(weekly_articles, top_n=3)
+    if not top_articles:
+        print("⚠️  Could not determine top articles. Nothing to send.")
+        sys.exit(0)
+
+    print("✍️  Formatting Sunday digest...")
+    webex_msg = format_webex_sunday(top_articles)
+    webex_card = format_webex_card_sunday(top_articles)
+    telegram_msg = format_telegram_sunday(top_articles)
+
+    print("📤 Sending Sunday digest to Webex...")
+    webex_ok = send_webex(webex_msg, card=webex_card)
+
+    print("📤 Sending Sunday digest to Telegram...")
+    telegram_ok = send_telegram(telegram_msg)
+
+    if webex_ok or telegram_ok:
+        print("💾 Clearing weekly accumulation...")
+        save_sent_history(set(), is_sunday=True)
+        print("✅ Sunday digest sent.")
+    else:
+        print("❌ Sunday delivery failed.")
+        sys.exit(1)
+
+
 def run():
     parser = argparse.ArgumentParser(description="CyberBrief news digest bot")
     parser.add_argument(
@@ -76,14 +110,31 @@ def run():
         action="store_true",
         help="Bypass timezone guard (for local testing)",
     )
+    parser.add_argument(
+        "--telegram-only",
+        action="store_true",
+        help="Send to Telegram only, skip Webex (for testing)",
+    )
     args = parser.parse_args()
 
     if not args.force:
         if not timezone_guard():
             sys.exit(0)
 
-    print("📡 Fetching articles from RSS feeds...")
+    # Sunday: send engagement leaderboard instead of normal digest
+    # Skipped when --telegram-only is set so the weekday pipeline can be tested on a Sunday
+    now_uk = datetime.now(LONDON_TZ)
+    if not args.telegram_only:
+        if args.force:
+            if now_uk.weekday() == 6:
+                run_sunday_digest()
+                return
+        elif now_uk.weekday() == 6:
+            run_sunday_digest()
+            return
+
     print("📊 Loading click data from previous digest...")
+    print("📡 Fetching articles from RSS feeds...")
     previous_articles = load_previous_digest_articles()
     update_engagement_from_previous_digest(previous_articles)
     engagement_scores = get_source_engagement_scores()
@@ -104,15 +155,22 @@ def run():
     webex_card = format_webex_card(articles, context_line)
     telegram_msg = format_telegram(articles, context_line)
 
-    print("📤 Sending to Webex...")
-    webex_ok = send_webex(webex_msg, card=webex_card)
+    if not args.telegram_only:
+        print("📤 Sending to Webex...")
+        webex_ok = send_webex(webex_msg, card=webex_card)
+    else:
+        print("⏭  Webex skipped (--telegram-only)")
+        webex_ok = False
 
     print("📤 Sending to Telegram...")
     telegram_ok = send_telegram(telegram_msg)
 
     if webex_ok or telegram_ok:
-        print("💾 Saving sent article URLs to history...")
-        save_sent_history({a["url"] for a in articles}, articles=articles)
+        if args.telegram_only:
+            print("⏭  Skipping history update (--telegram-only test run).")
+        else:
+            print("💾 Saving sent article URLs to history...")
+            save_sent_history({a["url"] for a in articles}, articles=articles)
         print("✅ Done.")
     else:
         print("❌ All deliveries failed. Not updating sent history.")

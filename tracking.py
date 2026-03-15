@@ -156,6 +156,31 @@ def update_engagement_from_previous_digest(previous_articles: list[dict]) -> Non
     _save_engagement(engagement)
 
 
+def get_weekly_top_articles(weekly_articles: list[dict], top_n: int = 3) -> list[dict]:
+    """
+    Given the week's accumulated article stubs (from last_week_digest in sent_history.json),
+    query Bitly for click counts and return the top_n sorted by clicks descending.
+    Articles without a bitly_id get 0 clicks.
+    """
+    token = os.environ.get("BITLY_API_TOKEN", "").strip()
+
+    results = []
+    for article in weekly_articles:
+        clicks = 0
+        if token and article.get("bitly_id"):
+            clicks = _get_clicks(article["bitly_id"], token)
+        results.append({**article, "clicks": clicks})
+
+    results.sort(key=lambda a: a["clicks"], reverse=True)
+    top = results[:top_n]
+
+    print(f"  🏆 Weekly top {top_n} articles:")
+    for a in top:
+        print(f"     {a['clicks']} clicks — {a['title'][:60]}")
+
+    return top
+
+
 def get_source_engagement_scores() -> dict[str, float]:
     """
     Return a dict of {source_name: score_multiplier} based on accumulated

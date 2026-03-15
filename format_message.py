@@ -143,7 +143,10 @@ def _reading_times(articles: list[dict]) -> tuple[int, int]:
         _word_count(a.get("full_text") or a.get("rss_summary", ""))
         for a in articles
     )
-    tldr_words = sum(_word_count(a.get("tldr", "")) for a in articles)
+    tldr_words = sum(
+        _word_count(a.get("tldr", "")) + _word_count(a.get("talk_track") or "")
+        for a in articles
+    )
     return _read_time_min(full_words), _read_time_min(tldr_words)
 
 
@@ -151,6 +154,88 @@ def _uk_date_string() -> str:
     now = datetime.now(LONDON_TZ)
     return f"{now.strftime('%A')}, {now.day} {now.strftime('%B %Y')}"  # e.g. "Wednesday, 11 March 2026"
 
+
+# ── Sunday Engagement Digest ──────────────────────────────────────────────────
+
+def format_webex_card_sunday(top_articles: list[dict]) -> dict:
+    """Adaptive Card for the Sunday 'Most Read This Week' digest."""
+    date_str = _uk_date_string()
+    medals = ["🥇", "🥈", "🥉"]
+    body = [
+        {"type": "TextBlock", "text": f"🏆 CyberBrief | Most Read This Week · {date_str}",
+         "weight": "Bolder", "size": "Large", "wrap": True, "color": "Accent"},
+        {"type": "TextBlock", "text": "Here's what your peers clicked most this week.",
+         "wrap": True, "isSubtle": True, "spacing": "Small"},
+        {"type": "Separator", "spacing": "Medium"},
+    ]
+    for i, article in enumerate(top_articles):
+        medal = medals[i] if i < len(medals) else f"#{i+1}"
+        link_url = article.get("short_url") or article["url"]
+        clicks = article.get("clicks", 0)
+        read_min = _read_time_min(_word_count(article.get("full_text") or article.get("tldr", "")))
+        click_label = f"{clicks} click{'s' if clicks != 1 else ''}"
+        block = {
+            "type": "Container", "style": "emphasis", "spacing": "Medium",
+            "items": [
+                {"type": "TextBlock", "text": f"{medal} {article['title']}",
+                 "weight": "Default", "color": "Accent", "wrap": True, "size": "Medium"},
+                {"type": "TextBlock",
+                 "text": f"· {article['source']}  👁 {click_label}  ⏱ {read_min} min read",
+                 "isSubtle": True, "wrap": True, "spacing": "None", "size": "Small"},
+                {"type": "TextBlock",
+                 "text": f"{article.get('tldr', '')} [→]({link_url})",
+                 "wrap": True, "spacing": "Small"},
+            ],
+        }
+        body.append(block)
+    body.append({"type": "TextBlock",
+                 "text": "👀 Next week's leaderboard starts Monday — click what catches your eye.",
+                 "isSubtle": True, "wrap": True, "spacing": "Medium", "size": "Small"})
+    return {"contentType": "application/vnd.microsoft.card.adaptive",
+            "content": {"type": "AdaptiveCard", "version": "1.3", "body": body}}
+
+
+def format_webex_sunday(top_articles: list[dict]) -> str:
+    """Markdown fallback for Sunday Webex delivery."""
+    date_str = _uk_date_string()
+    medals = ["🥇", "🥈", "🥉"]
+    lines = [f"### 🏆 CyberBrief | Most Read This Week · {date_str}", "",
+             "Here's what your peers clicked most this week.", "", "---", ""]
+    for i, article in enumerate(top_articles):
+        medal = medals[i] if i < len(medals) else f"#{i+1}"
+        link_url = article.get("short_url") or article["url"]
+        clicks = article.get("clicks", 0)
+        read_min = _read_time_min(_word_count(article.get("full_text") or article.get("tldr", "")))
+        click_label = f"{clicks} click{'s' if clicks != 1 else ''}"
+        lines += [f"**{medal} {article['title']}** *· {article['source']}  👁 {click_label}  ⏱ {read_min} min read*",
+                  "", f"{article.get('tldr', '')} [→]({link_url})", ""]
+    lines.append("👀 *Next week's leaderboard starts Monday — click what catches your eye.*")
+    return "\n".join(lines)
+
+
+def format_telegram_sunday(top_articles: list[dict]) -> str:
+    """HTML-formatted Sunday leaderboard for Telegram."""
+    date_str = _uk_date_string()
+    medals = ["🥇", "🥈", "🥉"]
+    lines = [f"🏆 <b>CyberBrief | Most Read This Week · {date_str}</b>", "",
+             "Here's what your peers clicked most this week.", "", "━━━━━━━━━━━━━━━", ""]
+    for i, article in enumerate(top_articles):
+        medal = medals[i] if i < len(medals) else f"#{i+1}"
+        link_url = article.get("short_url") or article["url"]
+        clicks = article.get("clicks", 0)
+        read_min = _read_time_min(_word_count(article.get("full_text") or article.get("tldr", "")))
+        click_label = f"{clicks} click{'s' if clicks != 1 else ''}"
+        lines += [
+            f"{medal} <b>{_escape_html(article['title'])}</b>",
+            f"<i>· {_escape_html(article['source'])}  👁 {click_label}  ⏱ {read_min} min read</i>",
+            "", f"{_escape_html(article.get('tldr', ''))} <a href=\"{link_url}\">→</a>", "",
+        ]
+    lines += ["━━━━━━━━━━━━━━━",
+              "👀 <i>Next week's leaderboard starts Monday — click what catches your eye.</i>"]
+    return "\n".join(lines)
+
+
+# ── Weekday digest ─────────────────────────────────────────────────────────────
 
 def format_webex(articles: list[dict], context_line: str) -> str:
     """
@@ -174,17 +259,18 @@ def format_webex(articles: list[dict], context_line: str) -> str:
         tldr_linked = f"{article['tldr']} [→]({link_url})"
         source_part = f"{article['source']} {age}" if age else article['source']
         title_line = f"**{emoji} {i}. {article['title']}** *· {source_part}*"
-        lines += [
-            title_line,
-            "",
-            f"{tldr_linked}",
-            "",
-        ]
+        lines += [title_line, "", f"{tldr_linked}"]
+        talk_track = article.get("talk_track")
+        if talk_track:
+            lines += ["", f"💬 *Talk track:* {talk_track}"]
+        lines.append("")
 
     full_min, tldr_min = _reading_times(articles)
     lines += [
         "---",
         f"💡 *{len(articles)} articles · Full read: ~{full_min} min · This digest: ~{tldr_min} min*",
+        "",
+        "👀 *Curious what your peers clicked most this week? Find out Sunday.*",
     ]
 
     return "\n".join(lines)
@@ -258,6 +344,15 @@ def format_webex_card(articles: list[dict], context_line: str) -> dict:
                 },
             ],
         }
+        talk_track = article.get("talk_track")
+        if talk_track:
+            article_block["items"].append({
+                "type": "TextBlock",
+                "text": f"💬 **Talk track:** {talk_track}",
+                "wrap": True,
+                "spacing": "Small",
+                "isSubtle": True,
+            })
         body.append(article_block)
 
     # Footer
@@ -268,6 +363,16 @@ def format_webex_card(articles: list[dict], context_line: str) -> dict:
             "isSubtle": True,
             "wrap": True,
             "spacing": "Medium",
+            "size": "Small",
+        }
+    )
+    body.append(
+        {
+            "type": "TextBlock",
+            "text": "👀 Curious what your peers clicked most this week? Find out Sunday.",
+            "isSubtle": True,
+            "wrap": True,
+            "spacing": "None",
             "size": "Small",
         }
     )
@@ -303,17 +408,18 @@ def format_telegram(articles: list[dict], context_line: str) -> str:
         tldr_linked = f"{_escape_html(article['tldr'])} <a href=\"{link_url}\">→</a>"
         source_part = f"{_escape_html(article['source'])} {age}" if age else _escape_html(article['source'])
         title_line = f"{emoji} <b>{i}. {_escape_html(article['title'])}</b> <i>· {source_part}</i>"
-        lines += [
-            title_line,
-            "",
-            tldr_linked,
-            "",
-        ]
+        lines += [title_line, "", tldr_linked]
+        talk_track = article.get("talk_track")
+        if talk_track:
+            lines += ["", f"💬 <i>Talk track: {_escape_html(talk_track)}</i>"]
+        lines.append("")
 
     full_min, tldr_min = _reading_times(articles)
     lines += [
         "━━━━━━━━━━━━━━━",
         f"💡 <i>{len(articles)} articles · Full read: ~{full_min} min · This digest: ~{tldr_min} min</i>",
+        "",
+        "👀 <i>Curious what your peers clicked most this week? Find out Sunday.</i>",
     ]
 
     return "\n".join(lines)
