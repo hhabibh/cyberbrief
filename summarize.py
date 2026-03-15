@@ -163,18 +163,20 @@ def generate_talk_track(article: dict) -> str | None:
         return None
 
     system_prompt = (
-        "You are a cybersecurity sales coach helping security sellers start conversations with clients. "
-        "Write exactly ONE sentence (20–30 words) that a seller could use to open a conversation about this news story. "
-        "Focus on the business risk, regulatory angle, or financial consequence — not technical details. "
-        "Be direct and specific. Plain British English. No fluff. "
-        "Do not start with 'This article' or 'You could say'. Write the talk track directly."
+        "You are a trusted cybersecurity advisor writing a conversation prompt for a colleague to use with a client. "
+        "Write exactly ONE assertive, open-ended sentence (20–30 words) that connects the risk or challenge in this news story "
+        "to what a typical organisation in the client's position might be facing right now. "
+        "The sentence should invite the client to reflect on their own situation — not sell anything. "
+        "Vary how each sentence opens: sometimes lead with the risk, sometimes with a question, sometimes with what others are doing. "
+        "Never start with 'This article', 'You could say', 'As a business leader', 'I', or 'We'. "
+        "No product mentions. Plain British English. Write the talk track directly."
     )
 
     user_prompt = (
         f"Article title: {article['title']}\n"
         f"Source: {article['source']}\n\n"
         f"Article text:\n{body[:2000]}\n\n"
-        "Write the single-sentence talk track:"
+        "Write the single-sentence trusted-advisor talk track:"
     )
 
     try:
