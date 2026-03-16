@@ -47,6 +47,8 @@ def timezone_guard() -> bool:
     Returns True if the current UK time matches a scheduled send window.
     The GitHub Actions cron fires at both UTC offsets (BST and GMT) for each day.
     This guard ensures only one actually runs.
+    Accepts runs within a 90-minute window after the scheduled hour to handle
+    GitHub Actions runner delays.
     """
     now_uk = datetime.now(LONDON_TZ)
     weekday = now_uk.weekday()
@@ -59,10 +61,11 @@ def timezone_guard() -> bool:
         )
         return False
 
-    if hour != expected_hour:
+    # Accept runs within 90 minutes of the scheduled hour to tolerate GitHub Actions delays
+    if hour not in (expected_hour, expected_hour + 1):
         print(
             f"⏭ Timezone guard: current UK time is {now_uk.strftime('%H:%M')} but "
-            f"send window for {now_uk.strftime('%A')} is {expected_hour:02d}:00. Exiting."
+            f"send window for {now_uk.strftime('%A')} is {expected_hour:02d}:00–{expected_hour + 1:02d}:30. Exiting."
         )
         return False
 

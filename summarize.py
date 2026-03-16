@@ -6,6 +6,7 @@ Uses Groq (Llama 3.3 70B, free tier) to generate:
 """
 
 import os
+import random
 from datetime import datetime, timezone
 from groq import Groq
 
@@ -158,29 +159,38 @@ def generate_talk_track(article: dict) -> str | None:
     if not _qualifies_for_talk_track(article):
         return None
 
-    body = article.get("full_text") or article.get("rss_summary", "")
-    if not body:
+    tldr = article.get("tldr", "").strip()
+    if not tldr:
         return None
 
+    # ~40% of the time, nudge toward a gentle offer of help; otherwise pure observation/question
+    offer_help = random.random() < 0.4
+    help_instruction = (
+        "End with a brief, natural offer to help them think through their own exposure — "
+        "e.g. 'happy to walk through what this means for you' or similar. Keep it warm, not salesy. "
+        if offer_help else
+        "Do not offer help or mention next steps — just surface the risk or question."
+    )
+
     system_prompt = (
-        "You are a trusted cybersecurity advisor writing a conversation prompt for a colleague to use with a client. "
-        "Write exactly ONE assertive, open-ended sentence (20–30 words) that connects the risk or challenge in this news story "
-        "to what a typical organisation in the client's position might be facing right now. "
-        "The sentence should invite the client to reflect on their own situation — not sell anything. "
-        "Vary how each sentence opens: sometimes lead with the risk, sometimes with a question, sometimes with what others are doing. "
-        "Never start with 'This article', 'You could say', 'As a business leader', 'I', or 'We'. "
-        "No product mentions. Plain British English. Write the talk track directly."
+        "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
+        "Write ONE sentence (15–20 words) that you would say next — not to sell anything, "
+        "but to genuinely check whether this story is relevant to the client's situation. "
+        "Lead with the risk, challenge, or a direct question. "
+        "Vary how you open: sometimes a direct question, sometimes an observation, sometimes a 'have you considered'. "
+        "Never start with 'This article', 'I', 'We', or 'As a business leader'. "
+        f"{help_instruction} "
+        "No product mentions. Plain British English. Write the sentence directly."
     )
 
     user_prompt = (
-        f"Article title: {article['title']}\n"
-        f"Source: {article['source']}\n\n"
-        f"Article text:\n{body[:2000]}\n\n"
-        "Write the single-sentence trusted-advisor talk track:"
+        f"Article title: {article['title']}\n\n"
+        f"Summary: {tldr}\n\n"
+        "Write the single-sentence advisor talk track:"
     )
 
     try:
-        return _call_groq(system_prompt, user_prompt, max_tokens=60)
+        return _call_groq(system_prompt, user_prompt, max_tokens=50)
     except Exception as e:
         print(f"  ⚠️  Groq talk track failed for '{article['title']}': {e}")
         return None
