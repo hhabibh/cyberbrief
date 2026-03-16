@@ -1,41 +1,88 @@
 {
   "sent_urls": [
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
     "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/"
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/"
   ],
   "last_digest": [
     {
-      "url": "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-      "source": "Bleeping Computer",
+      "url": "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+      "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-      "source": "Bleeping Computer",
+      "url": "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+      "source": "CyberScoop",
       "bitly_id": null
     },
     {
-      "url": "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-      "source": "Bleeping Computer",
+      "url": "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+      "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
-      "source": "The Register Security",
+      "url": "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+      "source": "The Record",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+      "url": "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
       "source": "SecurityWeek",
       "bitly_id": null
+    }
+  ],
+  "last_week_digest": [
+    {
+      "url": "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+      "title": "Payload Ransomware claims the hack of Royal Bahrain Hospital",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "Royal Bahrain Hospital was breached by Payload Ransomware, with 110 GB of data stolen, affecting patients from Bahrain and neighbouring countries, and threatening to release the data if a ransom is not paid by March 23, highlighting the vulnerability of healthcare facilities to cyber attacks.",
+      "published": "2026-03-15T14:55:46+00:00"
+    },
+    {
+      "url": "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+      "title": "Attackers are exploiting AI faster than defenders can keep up, new report warns",
+      "source": "CyberScoop",
+      "bitly_id": null,
+      "tldr": "Attackers are exploiting AI faster than defenders can respond, with cybercriminals and state-sponsored groups using AI to identify weaknesses and establish persistence at machine speed, leaving defenders struggling to keep up with slower, human-oriented processes, and forcing organisations to reevaluate their risk tolerance and consider automated remediation.",
+      "published": "2026-03-16T10:00:00+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+      "title": "Starbucks data breach impacts 889 employees",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "Starbucks reported a data breach affecting 889 employees after phishing attacks targeted its employee portal, potentially exposing personal information, including names, Social Security numbers, and bank account details, between January 19 and February 11, with the company offering 24 months of identity protection to affected individuals.",
+      "published": "2026-03-14T16:46:56+00:00"
+    },
+    {
+      "url": "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+      "title": "Ransomware incident responder gave info to BlackCat cybercriminals during negotiations, DOJ alleges",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "Angelo Martino, a ransomware incident responder, allegedly gave information to BlackCat cybercriminals, earning $1.2 million, and faces up to 20 years in prison, signalling a significant breach of trust in the industry, with far-reaching consequences for businesses and cybersecurity firms, particularly DigitalMint, where Martino was employed, and highlighting the need for increased transparency and oversight in ransom negotiations.",
+      "published": "2026-03-13T15:45:00+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+      "title": "In Other News: N8n Flaw Exploited, Slopoly Malware, Interpol Cybercrime Crackdown",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "A Telus Digital data breach occurred, while Linux AppArmor vulnerabilities allowed root privileges, and a US defense contractor was linked to Coruna exploits, affecting various global entities, with potential significant financial losses and operational disruptions for the companies involved, highlighting ongoing cybersecurity threats.",
+      "published": "2026-03-13T14:27:12+00:00"
     }
   ]
 }
