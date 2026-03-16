@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 # Load .env file for local development (no-op in GitHub Actions where secrets are env vars)
 load_dotenv()
 
-from fetch_news import fetch_all_articles, save_sent_history, load_previous_digest_articles, load_weekly_digest_articles
+from fetch_news import fetch_all_articles, save_sent_history, load_previous_digest_articles, load_weekly_digest_articles, already_sent_today
 from summarize import summarise_all
 from format_message import format_webex, format_webex_card, format_telegram, format_webex_card_sunday, format_webex_sunday, format_telegram_sunday
 from deliver import send_webex, send_telegram
@@ -47,8 +47,6 @@ def timezone_guard() -> bool:
     Returns True if the current UK time matches a scheduled send window.
     The GitHub Actions cron fires at both UTC offsets (BST and GMT) for each day.
     This guard ensures only one actually runs.
-    Accepts runs within a 90-minute window after the scheduled hour to handle
-    GitHub Actions runner delays.
     """
     now_uk = datetime.now(LONDON_TZ)
     weekday = now_uk.weekday()
@@ -61,11 +59,10 @@ def timezone_guard() -> bool:
         )
         return False
 
-    # Accept runs within 90 minutes of the scheduled hour to tolerate GitHub Actions delays
-    if hour not in (expected_hour, expected_hour + 1):
+    if hour != expected_hour:
         print(
             f"⏭ Timezone guard: current UK time is {now_uk.strftime('%H:%M')} but "
-            f"send window for {now_uk.strftime('%A')} is {expected_hour:02d}:00–{expected_hour + 1:02d}:30. Exiting."
+            f"send window for {now_uk.strftime('%A')} is {expected_hour:02d}:00. Exiting."
         )
         return False
 
@@ -122,6 +119,9 @@ def run():
 
     if not args.force:
         if not timezone_guard():
+            sys.exit(0)
+        if already_sent_today():
+            print("⏭ Already sent today's digest. Exiting.")
             sys.exit(0)
 
     # Sunday: send engagement leaderboard instead of normal digest

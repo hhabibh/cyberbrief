@@ -29,6 +29,23 @@ HEADERS = {
 SCRAPE_TIMEOUT = 10  # seconds per article fetch
 
 
+def already_sent_today() -> bool:
+    """Return True if a digest has already been sent today (UK date)."""
+    if not HISTORY_FILE.exists():
+        return False
+    try:
+        with open(HISTORY_FILE, "r", encoding="utf-8-sig") as f:
+            data = json.load(f)
+        last_sent = data.get("last_sent_date")
+        if not last_sent:
+            return False
+        from pytz import timezone as tz
+        uk_today = datetime.now(tz("Europe/London")).strftime("%Y-%m-%d")
+        return last_sent == uk_today
+    except Exception:
+        return False
+
+
 def load_sent_history() -> set:
     if HISTORY_FILE.exists():
         with open(HISTORY_FILE, "r", encoding="utf-8-sig") as f:
@@ -63,7 +80,8 @@ def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: 
         # Sunday run: preserve last_digest, clear the weekly accumulation after consuming it
         payload["last_digest"] = existing_data.get("last_digest", [])
         payload["last_week_digest"] = []
-    elif articles is not None:
+    elif articles is not None:        from pytz import timezone as tz
+        payload["last_sent_date"] = datetime.now(tz("Europe/London")).strftime("%Y-%m-%d")
         # Store minimal stubs needed for engagement polling
         payload["last_digest"] = [
             {"url": a["url"], "source": a["source"], "bitly_id": a.get("bitly_id")}
