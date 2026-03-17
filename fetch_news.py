@@ -80,7 +80,8 @@ def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: 
         # Sunday run: preserve last_digest, clear the weekly accumulation after consuming it
         payload["last_digest"] = existing_data.get("last_digest", [])
         payload["last_week_digest"] = []
-    elif articles is not None:        from pytz import timezone as tz
+    elif articles is not None:
+        from pytz import timezone as tz
         payload["last_sent_date"] = datetime.now(tz("Europe/London")).strftime("%Y-%m-%d")
         # Store minimal stubs needed for engagement polling
         payload["last_digest"] = [
