@@ -1,19 +1,8 @@
 name: CyberBrief News Digest
 
 on:
-  schedule:
-    # All times UTC. Two entries to cover BST (UTC+1) and GMT (UTC+0).
-    # The Python timezone guard in main.py ensures only one actually executes.
-
-    # Weekdays (Mon–Fri) 10:00 UK
-    - cron: '0 9 * * 1-5'   # 10:00 BST (summer)
-    - cron: '0 10 * * 1-5'  # 10:00 GMT (winter)
-
-    # Sunday 10:00 UK — engagement leaderboard
-    - cron: '0 9 * * 0'   # 10:00 BST (summer)
-    - cron: '0 10 * * 0'  # 10:00 GMT (winter)
-
-  # Allow manual trigger for testing
+  # Triggered externally by cron-job.org at 10:01 UK (Mon–Fri + Sun)
+  # via the GitHub API workflow_dispatch endpoint.
   workflow_dispatch:
     inputs:
       force:
