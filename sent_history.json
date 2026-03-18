@@ -1,51 +1,56 @@
 {
   "sent_urls": [
-    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
     "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
     "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://therecord.media/russia-ukraine-cyber-espionage-group",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
     "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
     "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
     "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/"
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://therecord.media/russia-ukraine-cyber-espionage-group"
   ],
-  "last_sent_date": "2026-03-17",
+  "last_sent_date": "2026-03-18",
   "last_digest": [
     {
-      "url": "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+      "url": "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://therecord.media/russia-ukraine-cyber-espionage-group",
-      "source": "The Record",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-      "source": "Bleeping Computer",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
+      "url": "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
       "source": "Dark Reading",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+      "source": "The Register Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
       "source": "SecurityWeek",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+      "source": "Bleeping Computer",
       "bitly_id": null
     }
   ],
@@ -129,6 +134,46 @@
       "bitly_id": null,
       "tldr": "A security firm executive was targeted in a sophisticated phishing attack, utilising DKIM-signed emails and trusted redirect infrastructure, highlighting the evolving threat landscape and potential business consequences for high-profile individuals, with the attack's complexity signalling a growing trend in targeted cybercrime, affecting global organisations.",
       "published": "2026-03-16T14:39:52+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+      "title": "CL-STA-1087 targets military capabilities since 2020",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "China-linked APT group CL-STA-1087 has targeted Southeast Asian militaries since 2020, using AppleChris and MemFun malware to collect sensitive files on military operations and organizational structures, with attackers demonstrating strategic operational patience and a focus on highly targeted intelligence collection, impacting regional security and military capabilities.",
+      "published": "2026-03-17T12:01:59+00:00"
+    },
+    {
+      "url": "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+      "title": "Hackers Target Cybersecurity Firm Outpost24 in 7-Stage Phish",
+      "source": "Dark Reading",
+      "bitly_id": null,
+      "tldr": "A 7-stage phishing attack targeted cybersecurity firm Outpost24, attempting to trick a C-suite executive into divulging credentials, leveraging trusted brands and domains, but ultimately proved unsuccessful, highlighting the evolving sophistication of cyber threats and the need for robust security measures to protect business leaders and sensitive information.",
+      "published": "2026-03-17T19:41:24+00:00"
+    },
+    {
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+      "title": "Iran's cyberattack against med tech firm is 'just the beginning'",
+      "source": "The Register Security",
+      "bitly_id": null,
+      "tldr": "Iran's cyberattack on med tech firm Stryker, causing a global network outage, signals more aggressive cyber-ops as the war escalates, with businesses at risk, particularly those in the global economy and healthcare supply chain, as Iran targets civilian assets, seeking to disrupt and exploit vulnerabilities, with 1 major US corporation already affected.",
+      "published": "2026-03-18T07:32:08+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+      "title": "UK Companies House Exposed Details of Millions of Firms",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "UK Companies House exposed details of millions of firms due to a vulnerability, potentially allowing alteration of records, affecting millions of companies, with significant business consequences and reputational damage, highlighting the need for robust cybersecurity measures to protect sensitive data.",
+      "published": "2026-03-17T15:40:25+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+      "title": "GlassWorm malware hits 400+ code repos on GitHub, npm, VSCode, OpenVSX",
+      "source": "Bleeping Computer",
+      "bitly_id": null,
+      "tldr": "Over 400 code repositories on GitHub, npm, and VSCode/OpenVSX were hit by GlassWorm malware, targeting cryptocurrency wallet data and developer credentials, with 433 compromised components identified, affecting 200 Python and 151 JS/TS repositories, and 72 extensions, signalling a significant supply-chain attack with far-reaching business consequences.",
+      "published": "2026-03-17T21:42:54+00:00"
     }
   ]
 }
