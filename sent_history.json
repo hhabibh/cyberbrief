@@ -1,56 +1,61 @@
 {
   "sent_urls": [
-    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
     "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
-    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
     "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://therecord.media/russia-ukraine-cyber-espionage-group",
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
     "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://therecord.media/russia-ukraine-cyber-espionage-group"
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html"
   ],
-  "last_sent_date": "2026-03-18",
+  "last_sent_date": "2026-03-19",
   "last_digest": [
     {
-      "url": "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+      "url": "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+      "source": "The Record",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+      "source": "Help Net Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-      "source": "Dark Reading",
-      "bitly_id": null
-    },
-    {
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
-      "source": "The Register Security",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+      "url": "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
       "source": "SecurityWeek",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-      "source": "Bleeping Computer",
       "bitly_id": null
     }
   ],
@@ -174,6 +179,46 @@
       "bitly_id": null,
       "tldr": "Over 400 code repositories on GitHub, npm, and VSCode/OpenVSX were hit by GlassWorm malware, targeting cryptocurrency wallet data and developer credentials, with 433 compromised components identified, affecting 200 Python and 151 JS/TS repositories, and 72 extensions, signalling a significant supply-chain attack with far-reaching business consequences.",
       "published": "2026-03-17T21:42:54+00:00"
+    },
+    {
+      "url": "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+      "title": "Russia-linked hackers use advanced iPhone exploit to target Ukrainians",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "Russia-linked hackers used the DarkSword iPhone exploit to target Ukrainians, stealing sensitive data with little user interaction, affecting visitors to compromised websites, including a news outlet and court website, with potential financial motives, targeting cryptocurrency platforms like Coinbase and Binance.",
+      "published": "2026-03-18T19:42:00+00:00"
+    },
+    {
+      "url": "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+      "title": "EDR killers are now standard equipment in ransomware attacks",
+      "source": "Help Net Security",
+      "bitly_id": null,
+      "tldr": "Ransomware attackers use EDR killers to disable security software, with nearly 90 tools tracked by ESET Research, allowing brief windows for encryption without detection, affecting businesses globally with significant operational consequences and financial losses, signaling a need for proactive monitoring and adaptive defensive strategies to counter evolving threats.",
+      "published": "2026-03-19T10:00:35+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+      "title": "Ransomware gang exploits Cisco flaw in zero-day attacks since January",
+      "source": "Bleeping Computer",
+      "bitly_id": null,
+      "tldr": "The Interlock ransomware gang exploited a Cisco Secure Firewall Management Center flaw in zero-day attacks since January, compromising enterprise firewalls, with Cisco patching the issue on March 4, warning of remote code execution risks, and urging customers to upgrade, after the gang had a 36-day head start to compromise organizations.",
+      "published": "2026-03-18T16:53:42+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
+      "title": "Interlock group exploiting the CISCO FMC flaw CVE-2026-20131 36 days before disclosure",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "The Interlock ransomware group exploited a Cisco FMC zero-day vulnerability, CVE-2026-20131, 36 days before disclosure, affecting Cisco Secure Firewall Management Center and Security Cloud Control, with a CVSS score of 10.0, allowing remote code execution, and potentially compromising multiple organizations, including targets in various sectors, with Amazon researchers uncovering the activity.",
+      "published": "2026-03-19T09:22:32+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+      "title": "Cisco Firewall Vulnerability Exploited as Zero-Day in Interlock Ransomware Attacks",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "A Cisco firewall vulnerability was exploited as a zero-day in Interlock ransomware attacks, with evidence of exploitation since late January, and links to Russia, affecting an unspecified number of users, resulting in significant business disruption and potential financial losses, signalling a growing threat to global businesses from sophisticated cyber attacks.",
+      "published": "2026-03-19T08:57:59+00:00"
     }
   ]
 }
