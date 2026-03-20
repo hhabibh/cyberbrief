@@ -1,61 +1,66 @@
 {
   "sent_urls": [
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
     "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://therecord.media/russia-ukraine-cyber-espionage-group",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
     "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
     "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
-    "https://therecord.media/russia-ukraine-cyber-espionage-group",
-    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
     "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
     "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
-    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
     "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://therecord.media/cisco-ransomware-interlock-firewalls",
     "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html"
   ],
-  "last_sent_date": "2026-03-19",
+  "last_sent_date": "2026-03-20",
   "last_digest": [
     {
-      "url": "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-      "source": "The Record",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-      "source": "Help Net Security",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+      "url": "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
       "source": "Bleeping Computer",
       "bitly_id": null
     },
     {
-      "url": "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
+      "url": "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+      "url": "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
+      "source": "SecurityAffairs",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
       "source": "SecurityWeek",
+      "bitly_id": null
+    },
+    {
+      "url": "https://therecord.media/cisco-ransomware-interlock-firewalls",
+      "source": "The Record",
       "bitly_id": null
     }
   ],
@@ -219,6 +224,46 @@
       "bitly_id": null,
       "tldr": "A Cisco firewall vulnerability was exploited as a zero-day in Interlock ransomware attacks, with evidence of exploitation since late January, and links to Russia, affecting an unspecified number of users, resulting in significant business disruption and potential financial losses, signalling a growing threat to global businesses from sophisticated cyber attacks.",
       "published": "2026-03-19T08:57:59+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
+      "title": "Russian hackers exploit Zimbra flaw in Ukrainian govt attacks",
+      "source": "Bleeping Computer",
+      "bitly_id": null,
+      "tldr": "Russian hackers exploited a Zimbra Collaboration Suite flaw, affecting Ukrainian government entities, with potential global implications for hundreds of millions of users, including government agencies and businesses, highlighting the vulnerability of widely-used email software to state-backed cyber attacks.",
+      "published": "2026-03-19T14:55:50+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+      "title": "DarkSword emerges as powerful iOS exploit tool in global attacks",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "DarkSword, an iOS exploit kit, has been used globally to steal data from Apple devices in Saudi Arabia, Turkey, Malaysia, and Ukraine, targeting iOS 18.4-18.7, with six vulnerabilities, including three zero-days, enabling full device compromise, and allowing attackers to extract sensitive data, including credentials and crypto wallet information, in a \"hit-and-run\" approach.",
+      "published": "2026-03-19T14:03:36+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
+      "title": "Russian APT targets Ukraine via Zimbra XSS flaw CVE-2025-66376",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "A Russian APT group exploited a Zimbra XSS flaw, CVE-2025-66376, to target Ukrainian users, stealing credentials and emails, with potential to compromise entire environments, affecting government entities and critical infrastructure, signalling increased cyber warfare risks for global businesses and organisations relying on Zimbra Collaboration.",
+      "published": "2026-03-19T14:48:48+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+      "title": "Security Firm Aura Discloses Data Breach Impacting 900,000 Records",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "Security firm Aura suffered a data breach affecting 900,000 records after an employee fell victim to a targeted phone phishing attack, compromising a marketing tool, with significant business consequences likely to follow, impacting trust and operations globally.",
+      "published": "2026-03-19T14:19:08+00:00"
+    },
+    {
+      "url": "https://therecord.media/cisco-ransomware-interlock-firewalls",
+      "title": "Interlock ransomware gang exploited Cisco firewall zero-day weeks before disclosure: Amazon",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "Interlock ransomware gang exploited a Cisco firewall zero-day vulnerability, affecting numerous organisations, including the city of St. Paul, with attacks starting on January 26, weeks before public disclosure on March 4, causing significant operational downtime and data exposure, particularly in the education sector, with over 40% of their activity targeting schools.",
+      "published": "2026-03-19T14:00:00+00:00"
     }
   ]
 }
