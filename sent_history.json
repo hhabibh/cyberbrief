@@ -1,66 +1,71 @@
 {
   "sent_urls": [
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
-    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
-    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
     "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
     "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
     "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-    "https://therecord.media/russia-ukraine-cyber-espionage-group",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
-    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
-    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
-    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
     "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+    "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://therecord.media/russia-ukraine-cyber-espionage-group",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
     "https://therecord.media/cisco-ransomware-interlock-firewalls",
-    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html"
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/"
   ],
-  "last_sent_date": "2026-03-20",
+  "last_sent_date": "2026-03-23",
   "last_digest": [
     {
-      "url": "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
-      "source": "Bleeping Computer",
-      "bitly_id": null
-    },
-    {
-      "url": "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+      "url": "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
-      "source": "SecurityAffairs",
+      "url": "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
+      "source": "Help Net Security",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
-      "source": "SecurityWeek",
+      "url": "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+      "source": "Dark Reading",
       "bitly_id": null
     },
     {
-      "url": "https://therecord.media/cisco-ransomware-interlock-firewalls",
+      "url": "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
       "source": "The Record",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+      "source": "SecurityWeek",
       "bitly_id": null
     }
   ],
@@ -264,6 +269,46 @@
       "bitly_id": null,
       "tldr": "Interlock ransomware gang exploited a Cisco firewall zero-day vulnerability, affecting numerous organisations, including the city of St. Paul, with attacks starting on January 26, weeks before public disclosure on March 4, causing significant operational downtime and data exposure, particularly in the education sector, with over 40% of their activity targeting schools.",
       "published": "2026-03-19T14:00:00+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+      "title": "Iran-linked actors use Telegram as C2 in malware attacks on dissidents",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "Iran-linked actors targeted dissidents and journalists worldwide, using Telegram as a command-and-control infrastructure to deliver malware, enabling surveillance and data theft, with the FBI warning of ongoing cyber campaigns by Iran's Ministry of Intelligence and Security, reflecting rising geopolitical tensions in the Middle East, affecting Windows systems since late 2023.",
+      "published": "2026-03-23T09:35:49+00:00"
+    },
+    {
+      "url": "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
+      "title": "Russian hackers go after high-value targets through Signal",
+      "source": "Help Net Security",
+      "bitly_id": null,
+      "tldr": "Russian hackers are targeting high-value individuals through Signal, compromising thousands of accounts via phishing, exploiting the \"linked devices\" feature, with potential financial and data losses, signalling a significant threat to global business and government communications security.",
+      "published": "2026-03-23T09:14:05+00:00"
+    },
+    {
+      "url": "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+      "title": "Cyber OpSec Fail: Beast Gang Exposes Ransomware Server",
+      "source": "Dark Reading",
+      "bitly_id": null,
+      "tldr": "The Beast Gang's ransomware server exposure reveals a systematic attack on network backups, a key tactic, with potentially significant business consequences for affected organisations, likely numbering in the hundreds, given the group's aggressive approach, underscoring the importance of robust backup security for global companies to mitigate such threats and associated financial losses.",
+      "published": "2026-03-20T16:31:33+00:00"
+    },
+    {
+      "url": "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
+      "title": "California city reports ransomware attack as LA transit agency finds \u2018unauthorized activity\u2019",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "Foster City, California, with 34,000 residents, reported a ransomware attack, pausing public services and declaring a state of emergency, while the LA transit agency found unauthorized activity, limiting employee access to internal systems, causing technical issues for customers, but no data breach was found, affecting daily operations for thousands of commuters.",
+      "published": "2026-03-20T19:21:00+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+      "title": "US Confirms Handala Link to Iran Government Amid Takedown of Hackers\u2019 Sites",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "The US seized several domains used by Handala, a group linked to the Iran government, disrupting their cyber-enabled psychological operations, impacting their ability to conduct online activities, with the full extent of the disruption still unfolding, affecting their operational capacity.",
+      "published": "2026-03-20T12:25:41+00:00"
     }
   ]
 }
