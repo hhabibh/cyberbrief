@@ -69,9 +69,6 @@
       "bitly_id": null
     }
   ],
-<<<<<<< HEAD
-  "last_week_digest": []
-=======
   "last_week_digest": [
     {
       "url": "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
@@ -314,5 +311,4 @@
       "published": "2026-03-20T12:25:41+00:00"
     }
   ]
->>>>>>> 29b1c0c6e9e5e0d14fcd27da79e9c07dbc0d8db7
 }
