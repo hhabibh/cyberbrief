@@ -1,70 +1,75 @@
 {
   "sent_urls": [
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
     "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
-    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
-    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
-    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
-    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
-    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-    "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://www.darkreading.com/endpoint-security/ransomware-new-era-moving-ai-speed",
+    "https://therecord.media/russia-ukraine-cyber-espionage-group",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
     "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
+    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
     "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
     "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
     "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
-    "https://therecord.media/russia-ukraine-cyber-espionage-group",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
+    "https://securityaffairs.com/189856/uncategorized/44-aqua-security-repositories-defaced-after-trivy-supply-chain-breach.html",
     "https://therecord.media/cisco-ransomware-interlock-firewalls",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/23/rsa_panel_china_threat_collaboration_call/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
     "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/"
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+    "https://therecord.media/california-city-reports-ransomware-attack-la-metro"
   ],
-  "last_sent_date": "2026-03-23",
+  "last_sent_date": "2026-03-24",
   "last_digest": [
     {
-      "url": "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+      "url": "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
+      "source": "Krebs on Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://securityaffairs.com/189856/uncategorized/44-aqua-security-repositories-defaced-after-trivy-supply-chain-breach.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
-      "source": "Help Net Security",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+      "url": "https://www.darkreading.com/endpoint-security/ransomware-new-era-moving-ai-speed",
       "source": "Dark Reading",
       "bitly_id": null
     },
     {
-      "url": "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
-      "source": "The Record",
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/23/rsa_panel_china_threat_collaboration_call/",
+      "source": "The Register Security",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+      "url": "https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/",
       "source": "SecurityWeek",
       "bitly_id": null
     }
@@ -309,6 +314,46 @@
       "bitly_id": null,
       "tldr": "The US seized several domains used by Handala, a group linked to the Iran government, disrupting their cyber-enabled psychological operations, impacting their ability to conduct online activities, with the full extent of the disruption still unfolding, affecting their operational capacity.",
       "published": "2026-03-20T12:25:41+00:00"
+    },
+    {
+      "url": "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
+      "title": "\u2018CanisterWorm\u2019 Springs Wiper Attack Targeting Iran",
+      "source": "Krebs on Security",
+      "bitly_id": null,
+      "tldr": "TeamPCP, a cybercrime group, unleashed a wiper attack targeting Iran, compromising cloud services and wiping data on infected systems, with 61% of compromised servers on Azure and 36% on AWS, affecting corporate networks and extorting victims, with significant business consequences for affected companies.",
+      "published": "2026-03-23T15:43:04+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189856/uncategorized/44-aqua-security-repositories-defaced-after-trivy-supply-chain-breach.html",
+      "title": "44 Aqua Security repositories defaced after Trivy supply chain breach",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "Aqua Security's 44 internal GitHub repositories were defaced by TeamPCP after a Trivy supply chain breach, exposing developers to infostealer malware, with all repositories renamed and defaced within two minutes, compromising internal code, tools, and infrastructure.",
+      "published": "2026-03-23T14:24:40+00:00"
+    },
+    {
+      "url": "https://www.darkreading.com/endpoint-security/ransomware-new-era-moving-ai-speed",
+      "title": "Ransomware's New Era: Moving at AI Speed",
+      "source": "Dark Reading",
+      "bitly_id": null,
+      "tldr": "Threat actors are using AI to launch faster ransomware attacks, bypassing security tools and exploiting valid credentials to target data, marking a new era in cybercrime with potentially devastating business consequences for global organisations, as attackers move at unprecedented speed.",
+      "published": "2026-03-23T21:40:37+00:00"
+    },
+    {
+      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/23/rsa_panel_china_threat_collaboration_call/",
+      "title": "Public-private partnerships vital in disrupting China's Typhoons, says RSA panel with no government speakers",
+      "source": "The Register Security",
+      "bitly_id": null,
+      "tldr": "A panel discussed disrupting China's Typhoons, with 4 private-sector experts highlighting the importance of public-private partnerships, citing Scattered Spider and Volt Typhoon attacks, which affected nearly every American, and required victims to share intelligence to enable government action, with around 100% of sightings on private infrastructure.",
+      "published": "2026-03-23T21:56:05+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/",
+      "title": "Stryker Says Malicious File Found During Probe Into Iran-Linked Attack",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "Stryker discovered a malicious file during an investigation into an Iran-linked attack, following an FBI alert on malware used by Iranian government hackers, affecting unspecified numbers of users, with potential business consequences including disrupted operations and financial losses, signalling increased global cyber threats from nation-state actors.",
+      "published": "2026-03-24T09:30:18+00:00"
     }
   ]
 }
