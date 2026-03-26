@@ -1,125 +1,90 @@
 {
   "sent_urls": [
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
-    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
-    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://therecord.media/cisco-ransomware-interlock-firewalls",
-    "https://www.securityweek.com/3-1-million-impacted-by-qualderm-data-breach/",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
-    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
-    "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
-    "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
-    "https://securityaffairs.com/189900/cyber-crime/81-month-sentence-for-russian-hacker-behind-major-ransomware-campaigns.html",
-    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
-    "https://www.bleepingcomputer.com/news/security/russian-man-sentenced-for-operating-botnet-used-in-ransomware-attacks/",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/23/rsa_panel_china_threat_collaboration_call/",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
-    "https://cyberscoop.com/trivy-supply-chain-attack-aqua-downstream-extortion-fallout/",
     "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
-    "https://securityaffairs.com/189856/uncategorized/44-aqua-security-repositories-defaced-after-trivy-supply-chain-breach.html",
-    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
-    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
-    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
-    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/24/1k_cloud_environments_infected_following/",
-    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
     "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+    "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/23/rsa_panel_china_threat_collaboration_call/",
     "https://therecord.media/russia-ukraine-cyber-espionage-group",
     "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
-    "https://www.darkreading.com/endpoint-security/ransomware-new-era-moving-ai-speed"
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
+    "https://securityaffairs.com/189856/uncategorized/44-aqua-security-repositories-defaced-after-trivy-supply-chain-breach.html",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://www.securityweek.com/3-1-million-impacted-by-qualderm-data-breach/",
+    "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://securityaffairs.com/189900/cyber-crime/81-month-sentence-for-russian-hacker-behind-major-ransomware-campaigns.html",
+    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
+    "https://www.securityweek.com/hackerone-employee-data-exposed-in-massive-navia-breach/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+    "https://www.bleepingcomputer.com/news/security/russian-man-sentenced-for-operating-botnet-used-in-ransomware-attacks/",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
+    "https://www.darkreading.com/endpoint-security/ransomware-new-era-moving-ai-speed",
+    "https://www.securityweek.com/stryker-says-malicious-file-found-during-probe-into-iran-linked-attack/",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
+    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+    "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://krebsonsecurity.com/2026/03/canisterworm-springs-wiper-attack-targeting-iran/",
+    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
+    "https://cyberscoop.com/trivy-supply-chain-attack-aqua-downstream-extortion-fallout/",
+    "https://therecord.media/supply-chain-attack-hits-widely-used-ai-package",
+    "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://securityaffairs.com/189969/data-breach/recent-navia-data-breach-impacts-hackerone-employee-data.html",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+    "https://www.helpnetsecurity.com/2026/03/25/russian-botnet-operator-sentenced-mario-kart-ransomware/",
+    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://therecord.media/cisco-ransomware-interlock-firewalls",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/24/1k_cloud_environments_infected_following/",
+    "https://securityaffairs.com/189987/cyber-crime/russian-national-convicted-for-running-botnet-used-in-attacks-on-u-s-firms.html",
+    "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html"
   ],
-  "last_sent_date": "2026-03-25",
+  "last_sent_date": "2026-03-26",
   "last_digest": [
     {
-      "url": "https://securityaffairs.com/189900/cyber-crime/81-month-sentence-for-russian-hacker-behind-major-ransomware-campaigns.html",
+      "url": "https://www.helpnetsecurity.com/2026/03/25/russian-botnet-operator-sentenced-mario-kart-ransomware/",
+      "source": "Help Net Security",
+      "bitly_id": null
+    },
+    {
+      "url": "https://securityaffairs.com/189969/data-breach/recent-navia-data-breach-impacts-hackerone-employee-data.html",
       "source": "SecurityAffairs",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/3-1-million-impacted-by-qualderm-data-breach/",
+      "url": "https://securityaffairs.com/189987/cyber-crime/russian-national-convicted-for-running-botnet-used-in-attacks-on-u-s-firms.html",
+      "source": "SecurityAffairs",
+      "bitly_id": null
+    },
+    {
+      "url": "https://therecord.media/supply-chain-attack-hits-widely-used-ai-package",
+      "source": "The Record",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/hackerone-employee-data-exposed-in-massive-navia-breach/",
       "source": "SecurityWeek",
-      "bitly_id": null
-    },
-    {
-      "url": "https://cyberscoop.com/trivy-supply-chain-attack-aqua-downstream-extortion-fallout/",
-      "source": "CyberScoop",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/russian-man-sentenced-for-operating-botnet-used-in-ransomware-attacks/",
-      "source": "Bleeping Computer",
-      "bitly_id": null
-    },
-    {
-      "url": "https://go.theregister.com/feed/www.theregister.com/2026/03/24/1k_cloud_environments_infected_following/",
-      "source": "The Register Security",
       "bitly_id": null
     }
   ],
   "last_week_digest": [
-    {
-      "url": "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-      "title": "Russia-linked APT uses DRILLAPP backdoor to spy on Ukrainian targets",
-      "source": "SecurityAffairs",
-      "bitly_id": null,
-      "tldr": "Russia-linked APT targeted Ukrainian entities with the DRILLAPP backdoor, using Microsoft Edge debugging for stealth, affecting various organizations and indicating ongoing espionage efforts with around 2 variants detected in February 2026, allowing attackers to access files, microphone, and camera, with potential significant business consequences.",
-      "published": "2026-03-16T20:32:41+00:00"
-    },
-    {
-      "url": "https://therecord.media/russia-ukraine-cyber-espionage-group",
-      "title": "Russia-linked espionage campaign targeting Ukraine using Starlink and charity lures",
-      "source": "The Record",
-      "bitly_id": null,
-      "tldr": "A Russia-linked hacker group targeted Ukrainian organizations with spyware disguised in documents about Starlink and a charity, affecting an unknown number of users, with potential significant operational consequences, signalling an escalation in cyber-espionage efforts by nation-state actors in the region, with Laundry Bear's tactics posing a threat to Ukraine's defence and institutions.",
-      "published": "2026-03-16T13:15:00+00:00"
-    },
-    {
-      "url": "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-      "title": "CISA flags Wing FTP Server flaw as actively exploited in attacks",
-      "source": "Bleeping Computer",
-      "bitly_id": null,
-      "tldr": "Over 10,000 Wing FTP Server customers worldwide are at risk due to an actively exploited vulnerability, with the US Air Force, Sony, and Airbus among those affected, potentially leading to remote code execution attacks and significant business disruption.",
-      "published": "2026-03-16T18:00:22+00:00"
-    },
-    {
-      "url": "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-      "title": "China-Nexus Hackers Skulk in Southeast Asian Military Orgs for Years",
-      "source": "Dark Reading",
-      "bitly_id": null,
-      "tldr": "Southeast Asian military organisations were breached, with hackers maintaining access for years, using novel backdoors and evasion techniques, impacting regional security and potentially compromising sensitive information, with long-term consequences for national defence and global stability, affecting undisclosed numbers of personnel and systems.",
-      "published": "2026-03-17T01:00:00+00:00"
-    },
-    {
-      "url": "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-      "title": "Security Firm Executive Targeted in Sophisticated Phishing Attack",
-      "source": "SecurityWeek",
-      "bitly_id": null,
-      "tldr": "A security firm executive was targeted in a sophisticated phishing attack, utilising DKIM-signed emails and trusted redirect infrastructure, highlighting the evolving threat landscape and potential business consequences for high-profile individuals, with the attack's complexity signalling a growing trend in targeted cybercrime, affecting global organisations.",
-      "published": "2026-03-16T14:39:52+00:00"
-    },
     {
       "url": "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
       "title": "CL-STA-1087 targets military capabilities since 2020",
@@ -359,6 +324,46 @@
       "bitly_id": null,
       "tldr": "Over 1,000 cloud environments have been infected with malware following a Trivy supply chain attack, with potential expansion to 10,000 more, as attackers collaborate with extortion groups like Lapsus$, creating a snowball effect across open source projects, impacting thousands of organizations globally.",
       "published": "2026-03-24T20:31:09+00:00"
+    },
+    {
+      "url": "https://www.helpnetsecurity.com/2026/03/25/russian-botnet-operator-sentenced-mario-kart-ransomware/",
+      "title": "Botnet operator behind $14 million in ransomware extortion payments gets 24 months behind bars",
+      "source": "Help Net Security",
+      "bitly_id": null,
+      "tldr": "A Russian national has been sentenced to 24 months in prison for managing a botnet used in ransomware attacks, resulting in $14 million in extortion payments from over 70 US companies, with the operation infecting up to 3,000 computers daily at its peak.",
+      "published": "2026-03-25T15:13:12+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189969/data-breach/recent-navia-data-breach-impacts-hackerone-employee-data.html",
+      "title": "Recent Navia data breach impacts HackerOne employee data",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "A Navia data breach exposed personal data of nearly 300 HackerOne employees, highlighting third-party breach risks. The breach, affecting 2,697,540 individuals, occurred from December 22, 2025, to January 15, 2026, and was detected on January 23, 2026, potentially enabling phishing attacks, with 287 employees impacted.",
+      "published": "2026-03-25T12:37:14+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/189987/cyber-crime/russian-national-convicted-for-running-botnet-used-in-attacks-on-u-s-firms.html",
+      "title": "Russian national convicted for running botnet used in attacks on U.S. firms",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "A Russian national, Ilya Angelov, was sentenced to 2 years in prison and fined $100,000 for running a botnet used in ransomware attacks on over 70 US companies, resulting in $14 million in extortion payments, signalling a significant crackdown on global cybercrime operations.",
+      "published": "2026-03-25T21:27:50+00:00"
+    },
+    {
+      "url": "https://therecord.media/supply-chain-attack-hits-widely-used-ai-package",
+      "title": "Supply chain attack hits widely-used AI package, risks impacting thousands of companies",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "LiteLLM, a widely-used AI package, was compromised in a supply chain attack, potentially impacting tens of thousands of companies, with three million daily downloads, and 36% of cloud environments possibly affected, risking sensitive data extraction and further intrusions.",
+      "published": "2026-03-25T17:02:00+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/hackerone-employee-data-exposed-in-massive-navia-breach/",
+      "title": "HackerOne Employee Data Exposed in Massive Navia Breach",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "HackerOne's employee data was exposed in a massive breach targeting Navia, with hundreds of employees' personal information stolen, highlighting significant operational consequences for the cybersecurity firm and its global workforce, amidst rising concerns over data protection and cybersecurity threats worldwide, affecting business operations and employee privacy.",
+      "published": "2026-03-25T07:57:00+00:00"
     }
   ]
 }
