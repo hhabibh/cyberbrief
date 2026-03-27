@@ -1,70 +1,75 @@
 {
   "sent_urls": [
-    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
-    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
-    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
-    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
-    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
-    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
-    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
-    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
-    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
-    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
-    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
-    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/",
-    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
-    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
-    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
-    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
+    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
     "https://securityaffairs.com/189467/cyber-crime/payload-ransomware-claims-the-hack-of-royal-bahrain-hospital.html",
+    "https://www.bleepingcomputer.com/news/security/glassworm-malware-hits-400-plus-code-repos-on-github-npm-vscode-openvsx/",
+    "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
+    "https://www.securityweek.com/security-firm-aura-discloses-data-breach-impacting-900000-records/",
+    "https://therecord.media/russia-linked-hackers-use-iphone-exploit-ukraine",
+    "https://cyberscoop.com/booz-allen-report-ai-helps-attackers-move-faster-than-current-defenses/",
+    "https://unit42.paloaltonetworks.com/handala-hack-wiper-attacks/",
+    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
+    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
+    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
+    "https://www.darkreading.com/threat-intelligence/china-nexus-hackers-southeast-asian-military-orgs",
+    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
     "https://go.theregister.com/feed/www.theregister.com/2026/03/18/irans_cyberattack_against_stryker/",
     "https://securityaffairs.com/189662/hacking/darksword-emerges-as-powerful-ios-exploit-tool-in-global-attacks.html",
-    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
-    "https://www.securityweek.com/polyfill-supply-chain-attack-impacting-100k-sites-linked-to-north-korea/",
-    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
-    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
-    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
-    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
     "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
-    "https://www.securityweek.com/uk-companies-house-exposed-details-of-millions-of-firms/",
-    "https://www.bleepingcomputer.com/news/security/cisa-flags-wing-ftp-server-flaw-as-actively-exploited-in-attacks/",
-    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
-    "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
-    "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
-    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://www.bleepingcomputer.com/news/security/england-hockey-investigating-ransomware-data-breach/",
+    "https://www.bleepingcomputer.com/news/security/cisa-new-langflow-flaw-actively-exploited-to-hijack-ai-workflows/",
+    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/",
+    "https://www.securityweek.com/hightower-holding-data-breach-impacts-130000/",
     "https://therecord.media/russia-ukraine-cyber-espionage-group",
-    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
-    "https://therecord.media/cisco-ransomware-interlock-firewalls",
-    "https://www.helpnetsecurity.com/2026/03/12/iran-linked-hacking-group-stryker-cyberattack/",
-    "https://www.securityweek.com/google-paid-out-17-million-in-bug-bounty-rewards-in-2025/",
-    "https://securityaffairs.com/189438/security/starbucks-data-breach-impacts-889-employees.html",
     "https://www.bleepingcomputer.com/news/security/interlock-ransomware-exploited-secure-fmc-flaw-in-zero-day-attacks-since-january/",
-    "https://www.bleepingcomputer.com/news/security/medtech-giant-stryker-offline-after-iran-linked-wiper-malware-attack/"
+    "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
+    "https://www.securityweek.com/security-firm-executive-targeted-in-sophisticated-phishing-attack/",
+    "https://securityaffairs.com/189553/apt/cl-sta-1087-targets-military-capabilities-since-2020.html",
+    "https://securityaffairs.com/189519/malware/russia-linked-apt-uses-drillapp-backdoor-to-spy-on-ukrainian-targets.html",
+    "https://www.bleepingcomputer.com/news/security/ai-generated-slopoly-malware-used-in-interlock-ransomware-attack/",
+    "https://www.bleepingcomputer.com/news/security/dutch-police-discloses-security-breach-after-phishing-attack/",
+    "https://www.securityweek.com/cisco-firewall-vulnerability-exploited-as-zero-day-in-interlock-ransomware-attacks/",
+    "https://www.bleepingcomputer.com/news/security/telus-digital-confirms-breach-after-hacker-claims-1-petabyte-data-theft/",
+    "https://go.theregister.com/feed/www.theregister.com/2026/03/12/cisa_n8n_rce/",
+    "https://therecord.media/ransomware-blackcat-doj-incident-responder",
+    "https://therecord.media/ransomware-ukraine-russia-bearlyfy",
+    "https://securityaffairs.com/190029/malware/china-linked-red-menshen-apt-deploys-stealthy-bpfdoor-implants-in-telecom-networks.html",
+    "https://www.bleepingcomputer.com/news/security/russian-apt28-military-hackers-exploit-zimbra-flaw-in-ukrainian-govt-attacks/",
+    "https://therecord.media/cisco-ransomware-interlock-firewalls",
+    "https://securityaffairs.com/189636/malware/interlock-group-exploiting-the-cisco-fmc-flaw-cve-2026-20131-36-days-before-disclosure.html",
+    "https://www.helpnetsecurity.com/2026/03/19/edr-killer-ransomware-attacks/",
+    "https://securityaffairs.com/189673/security/russian-apt-targets-ukraine-via-zimbra-xss-flaw-cve-2025-66376.html",
+    "https://www.bleepingcomputer.com/news/apple/apple-patches-older-iphones-and-ipads-against-coruna-exploits/",
+    "https://www.darkreading.com/threat-intelligence/hackers-target-cybersecurity-firm-outpost24-phish",
+    "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
+    "https://www.securityweek.com/in-other-news-n8n-flaw-exploited-slopoly-malware-interpol-cybercrime-crackdown/"
   ],
-  "last_sent_date": "2026-03-23",
+  "last_sent_date": "2026-03-27",
   "last_digest": [
     {
-      "url": "https://securityaffairs.com/189820/malware/iran-linked-actors-use-telegram-as-c2-in-malware-attacks-on-dissidents.html",
-      "source": "SecurityAffairs",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.helpnetsecurity.com/2026/03/23/russian-hackers-signal-phishing-campaign/",
-      "source": "Help Net Security",
-      "bitly_id": null
-    },
-    {
-      "url": "https://www.darkreading.com/threat-intelligence/opsec-beast-gang-exposes-ransomware-server",
-      "source": "Dark Reading",
-      "bitly_id": null
-    },
-    {
-      "url": "https://therecord.media/california-city-reports-ransomware-attack-la-metro",
+      "url": "https://therecord.media/ransomware-ukraine-russia-bearlyfy",
       "source": "The Record",
       "bitly_id": null
     },
     {
-      "url": "https://www.securityweek.com/us-confirms-handala-link-to-iran-government-amid-takedown-of-hackers-sites/",
+      "url": "https://securityaffairs.com/190029/malware/china-linked-red-menshen-apt-deploys-stealthy-bpfdoor-implants-in-telecom-networks.html",
+      "source": "SecurityAffairs",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/dutch-police-discloses-security-breach-after-phishing-attack/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-new-langflow-flaw-actively-exploited-to-hijack-ai-workflows/",
+      "source": "Bleeping Computer",
+      "bitly_id": null
+    },
+    {
+      "url": "https://www.securityweek.com/hightower-holding-data-breach-impacts-130000/",
       "source": "SecurityWeek",
       "bitly_id": null
     }
@@ -309,6 +314,46 @@
       "bitly_id": null,
       "tldr": "The US seized several domains used by Handala, a group linked to the Iran government, disrupting their cyber-enabled psychological operations, impacting their ability to conduct online activities, with the full extent of the disruption still unfolding, affecting their operational capacity.",
       "published": "2026-03-20T12:25:41+00:00"
+    },
+    {
+      "url": "https://therecord.media/ransomware-ukraine-russia-bearlyfy",
+      "title": "Pro-Ukraine hacker group Bearlyfy targets Russian companies with custom ransomware",
+      "source": "The Record",
+      "bitly_id": null,
+      "tldr": "Pro-Ukraine hacker group Bearlyfy has targeted over 70 Russian companies with custom ransomware, demanding hundreds of thousands of dollars, with roughly one in five victims paying the ransom, causing significant financial and operational damage to large Russian businesses over the past year.",
+      "published": "2026-03-26T15:30:00+00:00"
+    },
+    {
+      "url": "https://securityaffairs.com/190029/malware/china-linked-red-menshen-apt-deploys-stealthy-bpfdoor-implants-in-telecom-networks.html",
+      "title": "China-linked Red Menshen APT deploys stealthy BPFDoor implants in telecom networks",
+      "source": "SecurityAffairs",
+      "bitly_id": null,
+      "tldr": "China-linked Red Menshen APT deployed stealthy BPFDoor implants in telecom networks, mainly in the Middle East and Asia, to spy on government targets, compromising critical infrastructure and threatening entire populations, with the group active since at least 2021 and using highly stealthy implants to maintain hidden access.",
+      "published": "2026-03-27T06:16:10+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/dutch-police-discloses-security-breach-after-phishing-attack/",
+      "title": "Dutch Police discloses security breach after phishing attack",
+      "source": "Bleeping Computer",
+      "bitly_id": null,
+      "tldr": "The Dutch National Police disclosed a security breach following a phishing attack, with limited impact and no citizen data exposed. The incident is under investigation, with access to compromised systems blocked. This breach signals the need for stronger security measures, following a similar 2024 incident where police officers' work-related contact information was stolen, affecting multiple officers.",
+      "published": "2026-03-27T08:20:11+00:00"
+    },
+    {
+      "url": "https://www.bleepingcomputer.com/news/security/cisa-new-langflow-flaw-actively-exploited-to-hijack-ai-workflows/",
+      "title": "CISA: New Langflow flaw actively exploited to hijack AI workflows",
+      "source": "Bleeping Computer",
+      "bitly_id": null,
+      "tldr": "Hackers are exploiting a critical Langflow flaw, CVE-2026-33017, to hijack AI workflows, with 145,000 GitHub users potentially affected, allowing remote code execution and data harvesting, prompting CISA to issue a warning and recommend security updates by April 8 to prevent further exploitation.",
+      "published": "2026-03-26T19:17:43+00:00"
+    },
+    {
+      "url": "https://www.securityweek.com/hightower-holding-data-breach-impacts-130000/",
+      "title": "Hightower Holding Data Breach Impacts 130,000",
+      "source": "SecurityWeek",
+      "bitly_id": null,
+      "tldr": "Hightower Holding suffered a data breach, impacting 130,000 individuals, with hackers stealing names, Social Security numbers, and driver's license numbers, resulting in significant personal data exposure and potential financial losses, signalling a major concern for the industry regarding data protection and cybersecurity measures.",
+      "published": "2026-03-26T14:07:07+00:00"
     }
   ]
 }
