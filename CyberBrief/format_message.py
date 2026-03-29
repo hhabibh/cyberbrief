@@ -271,8 +271,6 @@ def format_webex(articles: list[dict], context_line: str) -> str:
     lines += [
         "---",
         f"💡 *{len(articles)} articles · Full read: ~{full_min} min · This digest: ~{tldr_min} min*",
-        "",
-        "👀 *Curious what your peers clicked most this week? Find out Sunday.*",
     ]
     if _SHOW_UPDATE_NOTICE:
         lines += ["", "🔔 *Update: Article titles are now clickable links — tap the title to read the full story.*"]
@@ -370,16 +368,6 @@ def format_webex_card(articles: list[dict], context_line: str) -> dict:
             "size": "Small",
         }
     )
-    body.append(
-        {
-            "type": "TextBlock",
-            "text": "👀 Curious what your peers clicked most this week? Find out Sunday.",
-            "isSubtle": True,
-            "wrap": True,
-            "spacing": "None",
-            "size": "Small",
-        }
-    )
     if _SHOW_UPDATE_NOTICE:
         body.append(
             {
@@ -432,8 +420,6 @@ def format_telegram(articles: list[dict], context_line: str) -> str:
     lines += [
         "━━━━━━━━━━━━━━━",
         f"💡 <i>{len(articles)} articles · Full read: ~{full_min} min · This digest: ~{tldr_min} min</i>",
-        "",
-        "👀 <i>Curious what your peers clicked most this week? Find out Sunday.</i>",
     ]
     if _SHOW_UPDATE_NOTICE:
         lines += ["", "🔔 <i>Update: Article titles are now clickable links — tap the title to read the full story.</i>"]

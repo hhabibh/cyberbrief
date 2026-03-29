@@ -23,11 +23,11 @@ from dotenv import load_dotenv
 # Load .env file for local development (no-op in GitHub Actions where secrets are env vars)
 load_dotenv()
 
-from fetch_news import fetch_all_articles, save_sent_history, load_previous_digest_articles, load_weekly_digest_articles, already_sent_today
+from fetch_news import fetch_all_articles, save_sent_history, load_weekly_digest_articles, already_sent_today
 from summarize import summarise_all
 from format_message import format_webex, format_webex_card, format_telegram, format_webex_card_sunday, format_webex_sunday, format_telegram_sunday
 from deliver import send_webex, send_telegram
-from tracking import add_tracking_urls, update_engagement_from_previous_digest, get_source_engagement_scores, get_weekly_top_articles
+from tracking import add_tracking_urls, get_weekly_top_articles
 
 LONDON_TZ = pytz.timezone("Europe/London")
 
@@ -136,12 +136,8 @@ def run():
             run_sunday_digest()
             return
 
-    print("📊 Loading click data from previous digest...")
-    print("📡 Fetching articles from RSS feeds...")
-    previous_articles = load_previous_digest_articles()
-    update_engagement_from_previous_digest(previous_articles)
-    engagement_scores = get_source_engagement_scores()
-    articles = fetch_all_articles(engagement_scores=engagement_scores)
+    print("� Fetching articles from RSS feeds...")
+    articles = fetch_all_articles()
 
     if not articles:
         print("⚠️  No new articles found after deduplication. Nothing to send.")
@@ -150,7 +146,6 @@ def run():
     print(f"📰 Selected {len(articles)} articles. Generating summaries...")
     articles, context_line = summarise_all(articles)
 
-    print("🔗 Adding tracking URLs...")
     articles = add_tracking_urls(articles)
 
     print("✍️  Formatting messages...")
