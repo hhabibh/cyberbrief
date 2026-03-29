@@ -13,6 +13,9 @@ LONDON_TZ = pytz.timezone("Europe/London")
 # Show the one-time update notice only on or before 26 March 2026
 _SHOW_UPDATE_NOTICE = datetime.now(LONDON_TZ).date() <= date(2026, 3, 26)
 
+# Show the tracking-disabled notice on 30 March 2026 only
+_SHOW_TRACKING_NOTICE = datetime.now(LONDON_TZ).date() == date(2026, 3, 30)
+
 
 def _age_label(published_iso: str | None) -> str:
     """Return age in hours always, wrapped in brackets e.g. '(2 hrs ago)', '(47 hrs ago)'."""
@@ -274,6 +277,8 @@ def format_webex(articles: list[dict], context_line: str) -> str:
     ]
     if _SHOW_UPDATE_NOTICE:
         lines += ["", "🔔 *Update: Article titles are now clickable links — tap the title to read the full story.*"]
+    if _SHOW_TRACKING_NOTICE:
+        lines += ["", "ℹ️ *Note: Link tracking has been temporarily disabled whilst a sustainable solution is evaluated.*"]
 
     return "\n".join(lines)
 
@@ -379,6 +384,17 @@ def format_webex_card(articles: list[dict], context_line: str) -> dict:
                 "size": "Small",
             }
         )
+    if _SHOW_TRACKING_NOTICE:
+        body.append(
+            {
+                "type": "TextBlock",
+                "text": "ℹ️ Note: Link tracking has been temporarily disabled whilst a sustainable solution is evaluated.",
+                "isSubtle": True,
+                "wrap": True,
+                "spacing": "None",
+                "size": "Small",
+            }
+        )
 
     return {
         "contentType": "application/vnd.microsoft.card.adaptive",
@@ -423,6 +439,8 @@ def format_telegram(articles: list[dict], context_line: str) -> str:
     ]
     if _SHOW_UPDATE_NOTICE:
         lines += ["", "🔔 <i>Update: Article titles are now clickable links — tap the title to read the full story.</i>"]
+    if _SHOW_TRACKING_NOTICE:
+        lines += ["", "ℹ️ <i>Note: Link tracking has been temporarily disabled whilst a sustainable solution is evaluated.</i>"]
 
     return "\n".join(lines)
 
