@@ -40,7 +40,7 @@ jobs:
           WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          BITLY_API_TOKEN: ${{ secrets.BITLY_API_TOKEN }}
+          DUB_API_TOKEN: ${{ secrets.DUB_API_TOKEN }}
         run: |
           if [ "${{ github.event.inputs.force }}" = "true" ]; then
             python main.py --force
@@ -52,7 +52,7 @@ jobs:
         run: |
           git config user.name "CyberBrief Bot"
           git config user.email "actions@github.com"
-          git add sent_history.json engagement.json
+          git add sent_history.json
           # Only commit if there are actual changes
           git diff --cached --quiet || git commit -m "chore: update history [skip ci]"
           git push
