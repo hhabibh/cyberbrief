@@ -38,7 +38,7 @@ SEND_SCHEDULE = {
     2: 10,  # Wednesday 10:00 UK
     3: 10,  # Thursday  10:00 UK
     4: 10,  # Friday    10:00 UK
-    6: 10,  # Sunday    10:00 UK — engagement leaderboard
+    # Sunday leaderboard disabled — no link tracking available
 }
 
 
@@ -123,18 +123,6 @@ def run():
         if already_sent_today():
             print("⏭ Already sent today's digest. Exiting.")
             sys.exit(0)
-
-    # Sunday: send engagement leaderboard instead of normal digest
-    # Skipped when --telegram-only is set so the weekday pipeline can be tested on a Sunday
-    now_uk = datetime.now(LONDON_TZ)
-    if not args.telegram_only:
-        if args.force:
-            if now_uk.weekday() == 6:
-                run_sunday_digest()
-                return
-        elif now_uk.weekday() == 6:
-            run_sunday_digest()
-            return
 
     print("� Fetching articles from RSS feeds...")
     articles = fetch_all_articles()
