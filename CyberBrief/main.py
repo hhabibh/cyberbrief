@@ -38,7 +38,7 @@ SEND_SCHEDULE = {
     2: 10,  # Wednesday 10:00 UK
     3: 10,  # Thursday  10:00 UK
     4: 10,  # Friday    10:00 UK
-    # Sunday leaderboard disabled — no link tracking available
+    6: 10,  # Sunday    10:00 UK — score-only, no digest sent
 }
 
 
@@ -71,36 +71,20 @@ def timezone_guard() -> bool:
 
 
 def run_sunday_digest():
-    """Fetch weekly top articles by click count and deliver the Sunday leaderboard digest."""
-    print("📊 Sunday digest — fetching weekly top articles...")
+    """Score weekly top articles by click count and log results — no digest sent yet."""
+    print("📊 Sunday scoring — fetching weekly top articles...")
     weekly_articles = load_weekly_digest_articles()
     if not weekly_articles:
-        print("⚠️  No weekly articles accumulated. Nothing to send.")
+        print("⚠️  No weekly articles accumulated. Nothing to score.")
         sys.exit(0)
 
     top_articles = get_weekly_top_articles(weekly_articles, top_n=3)
     if not top_articles:
-        print("⚠️  Could not determine top articles. Nothing to send.")
+        print("⚠️  Could not determine top articles.")
         sys.exit(0)
 
-    print("✍️  Formatting Sunday digest...")
-    webex_msg = format_webex_sunday(top_articles)
-    webex_card = format_webex_card_sunday(top_articles)
-    telegram_msg = format_telegram_sunday(top_articles)
-
-    print("📤 Sending Sunday digest to Webex...")
-    webex_ok = send_webex(webex_msg, card=webex_card)
-
-    print("📤 Sending Sunday digest to Telegram...")
-    telegram_ok = send_telegram(telegram_msg)
-
-    if webex_ok or telegram_ok:
-        print("💾 Clearing weekly accumulation...")
-        save_sent_history(set(), is_sunday=True)
-        print("✅ Sunday digest sent.")
-    else:
-        print("❌ Sunday delivery failed.")
-        sys.exit(1)
+    print("✅ Sunday scoring complete — leaderboard not yet published.")
+    sys.exit(0)
 
 
 def run():
@@ -123,7 +107,9 @@ def run():
         if already_sent_today():
             print("⏭ Already sent today's digest. Exiting.")
             sys.exit(0)
-
+    # Sunday: score weekly clicks only, no digest sent
+    if datetime.now(LONDON_TZ).weekday() == 6:
+        run_sunday_digest()
     print("� Fetching articles from RSS feeds...")
     articles = fetch_all_articles()
 
