@@ -35,7 +35,9 @@ jobs:
 
       - name: Run CyberBrief
         env:
-          GROQ_API_KEY: ${{ secrets.GROQ_API_KEY }}
+          BRIDGE_API_CLIENT_ID: ${{ secrets.BRIDGE_API_CLIENT_ID }}
+          BRIDGE_API_CLIENT_SECRET: ${{ secrets.BRIDGE_API_CLIENT_SECRET }}
+          BRIDGE_API_APP_KEY: ${{ secrets.BRIDGE_API_APP_KEY }}
           WEBEX_BOT_TOKEN: ${{ secrets.WEBEX_BOT_TOKEN }}
           WEBEX_ROOM_ID: ${{ secrets.WEBEX_ROOM_ID }}
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}

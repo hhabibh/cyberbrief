@@ -1,43 +1,75 @@
 """
 summarize.py
-Uses Groq (Llama 3.3 70B, free tier) to generate:
+Uses the Cisco ChatAI Bridge (GPT-4.1) to generate:
   - A 2-3 sentence TLDR for each article
   - A 1-sentence "Context This Week" framing line for the digest header
 """
 
+import json
 import os
 import random
+import threading
+import time
 from datetime import datetime, timezone
-from groq import Groq
 
-_client: Groq | None = None
+import requests
+
+# ---------------------------------------------------------------------------
+# Cisco ChatAI Bridge — OAuth2 token + HTTP client
+# ---------------------------------------------------------------------------
+
+_CLIENT_ID     = os.getenv("BRIDGE_API_CLIENT_ID", "")
+_CLIENT_SECRET = os.getenv("BRIDGE_API_CLIENT_SECRET", "")
+_APP_KEY       = os.getenv("BRIDGE_API_APP_KEY", "")
+_TOKEN_URL     = "https://id.cisco.com/oauth2/default/v1/token"
+_BRIDGE_URL    = "https://chat-ai.cisco.com/openai/deployments/gpt-4.1/chat/completions"
+_MODEL         = "gpt-4.1"
+
+_token_cache = {"token": None, "expires_at": 0}
+_token_lock  = threading.Lock()
 
 
-def _get_client() -> Groq:
-    global _client
-    if _client is None:
-        api_key = os.environ.get("GROQ_API_KEY")
-        if not api_key:
-            raise EnvironmentError(
-                "GROQ_API_KEY environment variable is not set. "
-                "Sign up at https://console.groq.com to get a free key."
-            )
-        _client = Groq(api_key=api_key)
-    return _client
+def _get_access_token() -> str:
+    with _token_lock:
+        if _token_cache["token"] and time.time() < _token_cache["expires_at"] - 60:
+            return _token_cache["token"]
+        resp = requests.post(
+            _TOKEN_URL,
+            data={"grant_type": "client_credentials"},
+            auth=(_CLIENT_ID, _CLIENT_SECRET),
+            timeout=15,
+        )
+        resp.raise_for_status()
+        data = resp.json()
+        _token_cache["token"]      = data["access_token"]
+        _token_cache["expires_at"] = time.time() + int(data.get("expires_in", 3600))
+        return _token_cache["token"]
 
 
-def _call_groq(system_prompt: str, user_prompt: str, max_tokens: int = 200) -> str:
-    client = _get_client()
-    response = client.chat.completions.create(
-        model="llama-3.3-70b-versatile",
-        messages=[
+def _call_bridge(system_prompt: str, user_prompt: str, max_tokens: int = 200) -> str:
+    if not _CLIENT_ID or not _CLIENT_SECRET or not _APP_KEY:
+        raise EnvironmentError(
+            "BRIDGE_API_CLIENT_ID, BRIDGE_API_CLIENT_SECRET and BRIDGE_API_APP_KEY "
+            "must all be set."
+        )
+    payload = {
+        "model":       _MODEL,
+        "messages":    [
             {"role": "system", "content": system_prompt},
-            {"role": "user", "content": user_prompt},
+            {"role": "user",   "content": user_prompt},
         ],
-        temperature=0.4,
-        max_tokens=max_tokens,
-    )
-    return response.choices[0].message.content.strip()
+        "temperature": 0.4,
+        "max_tokens":  max_tokens,
+        "user":        json.dumps({"appkey": _APP_KEY}),
+        "stop":        ["<|im_end|>"],
+    }
+    headers = {
+        "Content-Type": "application/json",
+        "api-key":      _get_access_token(),
+    }
+    resp = requests.post(_BRIDGE_URL, headers=headers, json=payload, timeout=120)
+    resp.raise_for_status()
+    return resp.json()["choices"][0]["message"]["content"].strip()
 
 
 def _rss_excerpt(article: dict) -> str:
@@ -83,9 +115,9 @@ def generate_tldr(article: dict) -> str:
     )
 
     try:
-        return _call_groq(system_prompt, user_prompt, max_tokens=200)
+        return _call_bridge(system_prompt, user_prompt, max_tokens=200)
     except Exception as e:
-        print(f"  ⚠️  Groq TLDR failed for '{article['title']}': {e} — using RSS excerpt")
+        print(f"  ⚠️  Bridge TLDR failed for '{article['title']}': {e} — using RSS excerpt")
         return _rss_excerpt(article)
 
 
@@ -128,7 +160,7 @@ def generate_context_line(articles: list[dict]) -> str:
     )
 
     try:
-        return _call_groq(system_prompt, user_prompt, max_tokens=80)
+        return _call_bridge(system_prompt, user_prompt, max_tokens=80)
     except Exception:
         return "This week's digest covers the latest developments across cybersecurity, technology, and global events."
 
@@ -190,9 +222,9 @@ def generate_talk_track(article: dict) -> str | None:
     )
 
     try:
-        return _call_groq(system_prompt, user_prompt, max_tokens=50)
+        return _call_bridge(system_prompt, user_prompt, max_tokens=50)
     except Exception as e:
-        print(f"  ⚠️  Groq talk track failed for '{article['title']}': {e}")
+        print(f"  ⚠️  Bridge talk track failed for '{article['title']}': {e}")
         return None
 
 
