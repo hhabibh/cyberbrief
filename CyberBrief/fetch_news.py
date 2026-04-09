@@ -88,6 +88,11 @@ def fetch_articles_by_urls(stubs: list[dict]) -> list[dict]:
                     title = h1.get_text(strip=True)
             if not title:
                 title = url
+            # Strip trailing site name appended by browsers e.g. "Title | Site" or "Title - Site"
+            for sep in (" | ", " - ", " — ", " – "):
+                if sep in title:
+                    title = title.rsplit(sep, 1)[0].strip()
+                    break
             # Extract body text
             for tag in soup(["script", "style", "nav", "footer", "aside", "header"]):
                 tag.decompose()
