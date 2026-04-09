@@ -23,7 +23,7 @@ from dotenv import load_dotenv
 # Load .env file for local development (no-op in GitHub Actions where secrets are env vars)
 load_dotenv()
 
-from fetch_news import fetch_all_articles, save_sent_history, load_weekly_digest_articles, already_sent_today
+from fetch_news import fetch_all_articles, save_sent_history, load_weekly_digest_articles, already_sent_today, load_previous_digest_articles, fetch_articles_by_urls
 from summarize import summarise_all
 from format_message import format_webex, format_webex_card, format_telegram, format_webex_card_sunday, format_webex_sunday, format_telegram_sunday
 from deliver import send_webex, send_telegram
@@ -95,6 +95,11 @@ def run():
         help="Bypass timezone guard (for local testing)",
     )
     parser.add_argument(
+        "--replay",
+        action="store_true",
+        help="Re-summarise today's already-sent articles and send to Telegram only (no history update)",
+    )
+    parser.add_argument(
         "--telegram-only",
         action="store_true",
         help="Send to Telegram only, skip Webex (for testing)",
@@ -107,6 +112,26 @@ def run():
         if already_sent_today():
             print("⏭ Already sent today's digest. Exiting.")
             sys.exit(0)
+
+    # --replay: re-summarise today's already-sent articles, send to Telegram only
+    if args.replay:
+        print("🔄 Replay mode — loading today's sent articles from history...")
+        stubs = load_previous_digest_articles()
+        if not stubs:
+            print("⚠️  No last_digest found in sent_history.json. Run normally first.")
+            sys.exit(1)
+        articles = fetch_articles_by_urls(stubs)
+        if not articles:
+            print("⚠️  Could not re-fetch any articles.")
+            sys.exit(1)
+        print(f"📰 Re-summarising {len(articles)} articles via Cisco Bridge...")
+        articles, context_line = summarise_all(articles)
+        telegram_msg = format_telegram(articles, context_line)
+        print("📤 Sending replay to Telegram...")
+        send_telegram(telegram_msg)
+        print("✅ Replay sent — history not updated.")
+        sys.exit(0)
+
     # Sunday: score weekly clicks only, no digest sent
     if datetime.now(LONDON_TZ).weekday() == 6:
         run_sunday_digest()

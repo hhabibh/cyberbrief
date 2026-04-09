@@ -63,6 +63,56 @@ def load_previous_digest_articles() -> list[dict]:
     return []
 
 
+def fetch_articles_by_urls(stubs: list[dict]) -> list[dict]:
+    """
+    Re-fetch full article text for a list of stubs (url, source, bitly_id).
+    Returns article dicts ready for summarisation, skipping any that fail.
+    """
+    articles = []
+    for stub in stubs:
+        url = stub.get("url", "")
+        if not url:
+            continue
+        print(f"  🔄 Re-fetching: {url}")
+        try:
+            resp = requests.get(url, headers=HEADERS, timeout=SCRAPE_TIMEOUT)
+            resp.raise_for_status()
+            soup = BeautifulSoup(resp.text, "html.parser")
+            # Extract title from <title> or <h1>
+            title = ""
+            if soup.title and soup.title.string:
+                title = soup.title.string.strip()
+            if not title:
+                h1 = soup.find("h1")
+                if h1:
+                    title = h1.get_text(strip=True)
+            if not title:
+                title = url
+            # Extract body text
+            for tag in soup(["script", "style", "nav", "footer", "aside", "header"]):
+                tag.decompose()
+            full_text = ""
+            for selector in ["article", "main", "body"]:
+                container = soup.find(selector)
+                if container:
+                    full_text = re.sub(r"\s+", " ", container.get_text(separator=" ", strip=True))[:4000]
+                    break
+        except Exception as e:
+            print(f"  ⚠️  Could not re-fetch {url}: {e}")
+            continue
+        articles.append({
+            "url":         url,
+            "source":      stub.get("source", "Unknown"),
+            "title":       title,
+            "rss_summary": "",
+            "full_text":   full_text,
+            "published":   stub.get("published"),
+            "short_url":   stub.get("short_url", url),
+            "bitly_id":    stub.get("bitly_id"),
+        })
+    return articles
+
+
 def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: bool = False) -> None:
     existing_data: dict = {}
     if HISTORY_FILE.exists():
@@ -85,7 +135,12 @@ def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: 
         payload["last_sent_date"] = datetime.now(tz("Europe/London")).strftime("%Y-%m-%d")
         # Store minimal stubs needed for engagement polling
         payload["last_digest"] = [
-            {"url": a["url"], "source": a["source"], "bitly_id": a.get("bitly_id")}
+            {
+                "url": a["url"],
+                "source": a["source"],
+                "bitly_id": a.get("bitly_id"),
+                "short_url": a.get("short_url", a["url"]),
+            }
             for a in articles
         ]
         # Accumulate weekly stubs for Sunday leaderboard (keep last 35 = max 7 days × 5)

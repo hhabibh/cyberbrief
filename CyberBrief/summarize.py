@@ -7,7 +7,6 @@ Uses the Cisco ChatAI Bridge (GPT-4.1) to generate:
 
 import json
 import os
-import random
 import threading
 import time
 from datetime import datetime, timezone
@@ -96,7 +95,7 @@ def generate_tldr(article: dict) -> str:
         "You are a senior cybersecurity analyst writing a news digest for business leaders and security professionals globally. "
         "Write a single paragraph of continuous prose summarising the article. "
         "Cover: what happened and to whom, the real-world business or operational consequence, and what it signals for the industry. "
-        "Rules: between 60 and 80 words — no more, no less. "
+        "STRICT WORD LIMIT: 60 to 70 words. Count every word carefully — stop at 70 words. "
         "Include specific numbers, figures, or statistics from the article where available (e.g. number of users affected, financial losses, scale of attack). "
         "No bullet points, no headers, no labels. "
         "Global perspective — avoid US-only framing. "
@@ -176,7 +175,12 @@ _BUSINESS_IMPACT_KEYWORDS = [
 
 def _qualifies_for_talk_track(article: dict) -> bool:
     """Return True if the article has enough business/customer-impact signal."""
-    text = (article.get("title", "") + " " + article.get("rss_summary", "")).lower()
+    text = (
+        article.get("title", "") + " " +
+        article.get("rss_summary", "") + " " +
+        article.get("full_text", "") + " " +
+        article.get("tldr", "")
+    ).lower()
     tech_business_score = article.get("scores", {}).get("tech_business", 0)
     if tech_business_score >= 2:
         return True
@@ -195,24 +199,14 @@ def generate_talk_track(article: dict) -> str | None:
     if not tldr:
         return None
 
-    # ~40% of the time, nudge toward a gentle offer of help; otherwise pure observation/question
-    offer_help = random.random() < 0.4
-    help_instruction = (
-        "End with a brief, natural offer to help them think through their own exposure — "
-        "e.g. 'happy to walk through what this means for you' or similar. Keep it warm, not salesy. "
-        if offer_help else
-        "Do not offer help or mention next steps — just surface the risk or question."
-    )
-
     system_prompt = (
         "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
-        "Write ONE sentence (15–20 words) that you would say next — not to sell anything, "
-        "but to genuinely check whether this story is relevant to the client's situation. "
-        "Lead with the risk, challenge, or a direct question. "
-        "Vary how you open: sometimes a direct question, sometimes an observation, sometimes a 'have you considered'. "
+        "Write ONE open-ended question (15–20 words) that invites the client to reflect on their own situation. "
+        "The question must stand alone — no offer of help, no 'happy to', no next steps, no follow-up suggestions. "
+        "It should make the client think and want to respond. "
+        "Vary how you open: sometimes start with 'How', 'What', 'Where', 'To what extent', or 'Which'. "
         "Never start with 'This article', 'I', 'We', or 'As a business leader'. "
-        f"{help_instruction} "
-        "No product mentions. Plain British English. Write the sentence directly."
+        "No product mentions. Plain British English. Write the question directly."
     )
 
     user_prompt = (
