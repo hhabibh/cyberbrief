@@ -1,6 +1,6 @@
 """
 summarize.py
-Uses the Cisco ChatAI Bridge (GPT-4.1) to generate:
+Uses the Cisco ChatAI Bridge (Gemini) to generate:
   - A 2-3 sentence TLDR for each article
   - A 1-sentence "Context This Week" framing line for the digest header
 """
@@ -21,8 +21,8 @@ _CLIENT_ID     = os.getenv("BRIDGE_API_CLIENT_ID", "")
 _CLIENT_SECRET = os.getenv("BRIDGE_API_CLIENT_SECRET", "")
 _APP_KEY       = os.getenv("BRIDGE_API_APP_KEY", "")
 _TOKEN_URL     = "https://id.cisco.com/oauth2/default/v1/token"
-_BRIDGE_URL    = "https://chat-ai.cisco.com/openai/deployments/gpt-4.1/chat/completions"
-_MODEL         = "gpt-4.1"
+_BRIDGE_URL    = "https://chat-ai.cisco.com/openai/deployments/gemini-3.1-flash-lite/chat/completions"
+_MODEL         = "gemini-3.1-flash-lite"
 
 _token_cache = {"token": None, "expires_at": 0}
 _token_lock  = threading.Lock()

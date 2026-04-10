@@ -16,9 +16,6 @@ _SHOW_UPDATE_NOTICE = datetime.now(LONDON_TZ).date() <= date(2026, 3, 26)
 # Show the tracking-disabled notice on 30 March 2026 only
 _SHOW_TRACKING_NOTICE = datetime.now(LONDON_TZ).date() == date(2026, 3, 30)
 
-# Show the LLM migration notice on 10 April 2026 only
-_SHOW_LLM_NOTICE = datetime.now(LONDON_TZ).date() == date(2026, 4, 10)
-
 
 def _age_label(published_iso: str | None) -> str:
     """Return age in hours always, wrapped in brackets e.g. '(2 hrs ago)', '(47 hrs ago)'."""
