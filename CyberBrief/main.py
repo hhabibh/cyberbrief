@@ -27,7 +27,7 @@ from fetch_news import fetch_all_articles, save_sent_history, load_weekly_digest
 from summarize import summarise_all
 from format_message import format_webex, format_webex_card, format_telegram, format_webex_card_sunday, format_webex_sunday, format_telegram_sunday
 from deliver import send_webex, send_telegram
-from tracking import add_tracking_urls, get_weekly_top_articles
+from tracking import add_tracking_urls, get_weekly_top_articles, delete_previous_week_links
 
 LONDON_TZ = pytz.timezone("Europe/London")
 
@@ -82,6 +82,9 @@ def run_sunday_digest():
     if not top_articles:
         print("⚠️  Could not determine top articles.")
         sys.exit(0)
+
+    print("  🗑️  Deleting last week's Dub.co links to free quota for next week...")
+    delete_previous_week_links(weekly_articles)
 
     print("✅ Sunday scoring complete — leaderboard not yet published.")
     sys.exit(0)

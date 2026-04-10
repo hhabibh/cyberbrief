@@ -91,6 +91,38 @@ def add_tracking_urls(articles: list[dict]) -> list[dict]:
     return articles
 
 
+def delete_previous_week_links(weekly_articles: list[dict]) -> None:
+    """
+    Delete all Dub.co links from the previous week's digest stubs.
+    Call this after Sunday click scoring so the monthly quota resets cleanly
+    and a fresh set of 25 links is available for the coming week.
+    Silently skips articles without a link_id or when DUB_API_TOKEN is absent.
+    """
+    token = os.environ.get("DUB_API_TOKEN", "").strip()
+    if not token:
+        return
+
+    deleted = 0
+    for article in weekly_articles:
+        link_id = article.get("bitly_id")
+        if not link_id:
+            continue
+        try:
+            resp = requests.delete(
+                f"{DUB_API_BASE}/links/{link_id}",
+                headers=_headers(token),
+                timeout=10,
+            )
+            if resp.status_code in (200, 204):
+                deleted += 1
+            else:
+                print(f"  \u26a0\ufe0f  Could not delete link {link_id}: HTTP {resp.status_code}")
+        except Exception as e:
+            print(f"  \u26a0\ufe0f  Error deleting link {link_id}: {e}")
+
+    print(f"  \U0001f5d1\ufe0f  Deleted {deleted}/{len(weekly_articles)} Dub.co links from last week.")
+
+
 def get_weekly_top_articles(weekly_articles: list[dict], top_n: int = 3) -> list[dict]:
     """
     Given the week's accumulated article stubs (from last_week_digest in sent_history.json),

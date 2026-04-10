@@ -103,13 +103,23 @@ def fetch_articles_by_urls(stubs: list[dict]) -> list[dict]:
                     full_text = re.sub(r"\s+", " ", container.get_text(separator=" ", strip=True))[:4000]
                     break
         except Exception as e:
-            print(f"  ⚠️  Could not re-fetch {url}: {e}")
+            print(f"  ⚠️  Could not re-fetch {url}: {e} — using stored stub data")
+            articles.append({
+                "url":         url,
+                "source":      stub.get("source", "Unknown"),
+                "title":       stub.get("title") or url,
+                "rss_summary": stub.get("rss_summary", ""),
+                "full_text":   "",
+                "published":   stub.get("published"),
+                "short_url":   stub.get("short_url", url),
+                "bitly_id":    stub.get("bitly_id"),
+            })
             continue
         articles.append({
             "url":         url,
             "source":      stub.get("source", "Unknown"),
             "title":       title,
-            "rss_summary": "",
+            "rss_summary": stub.get("rss_summary", ""),
             "full_text":   full_text,
             "published":   stub.get("published"),
             "short_url":   stub.get("short_url", url),
@@ -138,13 +148,16 @@ def save_sent_history(urls: set, articles: list[dict] | None = None, is_sunday: 
     elif articles is not None:
         from pytz import timezone as tz
         payload["last_sent_date"] = datetime.now(tz("Europe/London")).strftime("%Y-%m-%d")
-        # Store minimal stubs needed for engagement polling
+        # Store minimal stubs needed for engagement polling and replay fallback
         payload["last_digest"] = [
             {
                 "url": a["url"],
+                "title": a.get("title", ""),
                 "source": a["source"],
+                "rss_summary": a.get("rss_summary", ""),
                 "bitly_id": a.get("bitly_id"),
                 "short_url": a.get("short_url", a["url"]),
+                "published": a.get("published"),
             }
             for a in articles
         ]
