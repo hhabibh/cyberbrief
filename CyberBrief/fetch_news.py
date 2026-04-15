@@ -332,25 +332,27 @@ def fetch_all_articles(engagement_scores: dict[str, float] | None = None) -> lis
 
 def _topic_key(title: str) -> str:
     """
-    Reduce a title to a short 'topic fingerprint' for similarity checking.
-    Strips common words and punctuation, lowercases, takes first 4 meaningful words.
-    Two articles about the same story will usually share most of these words.
+    Reduce a title to a set of meaningful words for similarity checking.
+    Strips common words and punctuation, lowercases, returns all meaningful words.
+    Two articles about the same story will share several of these words.
     """
     stopwords = {
         "a", "an", "the", "in", "on", "at", "to", "for", "of", "and", "or",
         "but", "is", "are", "was", "were", "be", "been", "by", "with", "as",
         "it", "its", "that", "this", "from", "have", "has", "how", "why",
-        "what", "new", "after", "over", "into", "about", "more",
+        "what", "new", "after", "over", "into", "about", "more", "says",
+        "say", "said", "via", "after", "confirms", "confirm", "reported",
+        "report", "reveals", "reveal", "following",
     }
     words = re.sub(r"[^a-z0-9 ]", "", title.lower()).split()
-    meaningful = [w for w in words if w not in stopwords and len(w) > 2]
-    return " ".join(meaningful[:4])
+    return " ".join(w for w in words if w not in stopwords and len(w) > 2)
 
 
-def _is_duplicate_topic(title: str, seen_keys: list[str], threshold: int = 2) -> bool:
+def _is_duplicate_topic(title: str, seen_keys: list[str], threshold: int = 3) -> bool:
     """
     Returns True if this title shares >= threshold meaningful words with any
     already-selected article, indicating it covers the same story.
+    Threshold of 3 avoids false positives from common terms like 'data breach'.
     """
     candidate_words = set(_topic_key(title).split())
     for key in seen_keys:

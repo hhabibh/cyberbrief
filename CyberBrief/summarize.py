@@ -187,7 +187,18 @@ def _qualifies_for_talk_track(article: dict) -> bool:
     return any(kw in text for kw in _BUSINESS_IMPACT_KEYWORDS)
 
 
-def generate_talk_track(article: dict) -> str | None:
+# Deterministic opener rotation — one per article slot (0-indexed)
+# Ensures no two articles in the same digest share the same opening word
+_TALK_TRACK_OPENERS = [
+    ("What",          "Start the question with the word 'What'."),
+    ("To what extent", "Start the question with the phrase 'To what extent'."),
+    ("Where",         "Start the question with the word 'Where'."),
+    ("Which",         "Start the question with the word 'Which'."),
+    ("How",           "Start the question with the word 'How'."),
+]
+
+
+def generate_talk_track(article: dict, position: int = 0) -> str | None:
     """
     Generate a single-sentence seller conversation starter for qualifying articles.
     Returns None if the article doesn't qualify or Groq fails.
@@ -199,12 +210,14 @@ def generate_talk_track(article: dict) -> str | None:
     if not tldr:
         return None
 
+    _, opener_instruction = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
+
     system_prompt = (
         "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
         "Write ONE open-ended question (15–20 words) that invites the client to reflect on their own situation. "
         "The question must stand alone — no offer of help, no 'happy to', no next steps, no follow-up suggestions. "
         "It should make the client think and want to respond. "
-        "Vary how you open: sometimes start with 'How', 'What', 'Where', 'To what extent', or 'Which'. "
+        f"{opener_instruction} "
         "Never start with 'This article', 'I', 'We', or 'As a business leader'. "
         "No product mentions. Plain British English. Write the question directly."
     )
@@ -227,9 +240,9 @@ def summarise_all(articles: list[dict]) -> tuple[list[dict], str]:
     Summarise all articles and generate the context line.
     Returns (articles_with_tldrs, context_line).
     """
-    for article in articles:
+    for i, article in enumerate(articles):
         article["tldr"] = generate_tldr(article)
-        article["talk_track"] = generate_talk_track(article)
+        article["talk_track"] = generate_talk_track(article, position=i)
 
     context_line = generate_context_line(articles)
     return articles, context_line
