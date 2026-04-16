@@ -188,20 +188,21 @@ def _qualifies_for_talk_track(article: dict) -> bool:
 
 
 # Deterministic opener rotation — one per article slot (0-indexed)
-# Ensures no two articles in the same digest share the same opening word
+# Ensures no two articles in the same digest share the same opening word.
+# Each tuple is (opener_word_or_phrase, completion_hint) used to prime the model.
 _TALK_TRACK_OPENERS = [
-    ("What",          "Start the question with the word 'What'."),
-    ("To what extent", "Start the question with the phrase 'To what extent'."),
-    ("Where",         "Start the question with the word 'Where'."),
-    ("Which",         "Start the question with the word 'Which'."),
-    ("How",           "Start the question with the word 'How'."),
+    ("What",           "does this mean for"),
+    ("To what extent", "is your organisation"),
+    ("Where",          "are the gaps in your"),
+    ("Which",          "areas of your organisation"),
+    ("How",            "would your organisation"),
 ]
 
 
 def generate_talk_track(article: dict, position: int = 0) -> str | None:
     """
     Generate a single-sentence seller conversation starter for qualifying articles.
-    Returns None if the article doesn't qualify or Groq fails.
+    Returns None if the article doesn't qualify or the Bridge call fails.
     """
     if not _qualifies_for_talk_track(article):
         return None
@@ -210,26 +211,32 @@ def generate_talk_track(article: dict, position: int = 0) -> str | None:
     if not tldr:
         return None
 
-    _, opener_instruction = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
+    opener_word, completion_hint = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
 
     system_prompt = (
         "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
-        "Write ONE open-ended question (15–20 words) that invites the client to reflect on their own situation. "
-        "The question must stand alone — no offer of help, no 'happy to', no next steps, no follow-up suggestions. "
-        "It should make the client think and want to respond. "
-        f"{opener_instruction} "
-        "Never start with 'This article', 'I', 'We', or 'As a business leader'. "
-        "No product mentions. Plain British English. Write the question directly."
+        "Complete the open-ended question below (the opening words are already written). "
+        "The completed question must be 15–20 words in total, end with a question mark, "
+        "and invite the client to reflect on their own situation. "
+        "No offer of help, no 'happy to', no next steps. "
+        "No product mentions. Plain British English. "
+        "Output only the completed question — do not repeat or change the opening words."
     )
 
     user_prompt = (
         f"Article title: {article['title']}\n\n"
         f"Summary: {tldr}\n\n"
-        "Write the single-sentence advisor talk track:"
+        f"Complete this question (keep the opening words exactly as shown):\n"
+        f"{opener_word} {completion_hint} ..."
     )
 
     try:
-        return _call_bridge(system_prompt, user_prompt, max_tokens=50)
+        raw = _call_bridge(system_prompt, user_prompt, max_tokens=60)
+        # Ensure the opener is present — model occasionally omits it
+        lower = raw.lower().lstrip()
+        if not lower.startswith(opener_word.lower()):
+            raw = f"{opener_word} {raw.lstrip()}"
+        return raw
     except Exception as e:
         print(f"  ⚠️  Bridge talk track failed for '{article['title']}': {e}")
         return None
