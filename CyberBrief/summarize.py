@@ -187,15 +187,14 @@ def _qualifies_for_talk_track(article: dict) -> bool:
     return any(kw in text for kw in _BUSINESS_IMPACT_KEYWORDS)
 
 
-# Deterministic opener rotation — one per article slot (0-indexed)
-# Ensures no two articles in the same digest share the same opening word.
-# Each tuple is (opener_word_or_phrase, completion_hint) used to prime the model.
+# Deterministic opener rotation — one per article slot (0-indexed).
+# Model writes ONLY the tail; Python prepends the opener — guaranteed rotation.
 _TALK_TRACK_OPENERS = [
-    ("What",           "does this mean for"),
-    ("To what extent", "is your organisation"),
-    ("Where",          "are the gaps in your"),
-    ("Which",          "areas of your organisation"),
-    ("How",            "would your organisation"),
+    ("What",           "what this reveals about your organisation's exposure or readiness"),
+    ("To what extent", "how prepared your organisation is to handle a similar threat"),
+    ("Where",          "where the gaps are in your organisation's defences or processes"),
+    ("Which",          "which parts of your organisation would be most at risk here"),
+    ("How",            "how exposed or resilient your organisation is in this area"),
 ]
 
 
@@ -211,32 +210,33 @@ def generate_talk_track(article: dict, position: int = 0) -> str | None:
     if not tldr:
         return None
 
-    opener_word, completion_hint = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
+    opener_word, theme_hint = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
 
     system_prompt = (
         "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
-        "Complete the open-ended question below (the opening words are already written). "
-        "The completed question must be 15–20 words in total, end with a question mark, "
-        "and invite the client to reflect on their own situation. "
-        "No offer of help, no 'happy to', no next steps. "
-        "No product mentions. Plain British English. "
-        "Output only the completed question — do not repeat or change the opening words."
+        "Write the TAIL of an open-ended question — the words that come AFTER the opening word you are given. "
+        "Rules: "
+        "• The full assembled question (opening word + your tail) must be 15–20 words and end with a question mark. "
+        "• Invite the client to reflect on their own organisation's exposure, visibility, or readiness. "
+        "• Be concrete — avoid vague phrases like 'your strategy would adapt', 'your posture holds up', or 'your protocols withstand'. "
+        "• No offer of help, no next steps, no product mentions. Plain British English. "
+        "• Output ONLY the tail — do not include the opening word in your response."
     )
 
     user_prompt = (
         f"Article title: {article['title']}\n\n"
         f"Summary: {tldr}\n\n"
-        f"Complete this question (keep the opening words exactly as shown):\n"
-        f"{opener_word} {completion_hint} ..."
+        f"Opening word for the question: '{opener_word}'\n"
+        f"Theme to explore: {theme_hint}\n\n"
+        f"Write ONLY the words that follow '{opener_word}'. Do not write '{opener_word}' itself."
     )
 
     try:
-        raw = _call_bridge(system_prompt, user_prompt, max_tokens=60)
-        # Ensure the opener is present — model occasionally omits it
-        lower = raw.lower().lstrip()
-        if not lower.startswith(opener_word.lower()):
-            raw = f"{opener_word} {raw.lstrip()}"
-        return raw
+        tail = _call_bridge(system_prompt, user_prompt, max_tokens=60).strip()
+        # Strip opener if the model included it despite instructions
+        if tail.lower().startswith(opener_word.lower()):
+            tail = tail[len(opener_word):].lstrip()
+        return f"{opener_word} {tail}"
     except Exception as e:
         print(f"  ⚠️  Bridge talk track failed for '{article['title']}': {e}")
         return None
