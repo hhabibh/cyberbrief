@@ -408,16 +408,15 @@ def _select_top_articles(candidates: list[dict]) -> list[dict]:
             if len(selected) == 5:
                 break
 
-    # Third pass: relax topic dedup but keep per-source cap
+    # Third pass: relax per-source cap but KEEP topic dedup to avoid same story twice
     if len(selected) < 5:
         selected_urls = {a["url"] for a in selected}
         for article in candidates:
-            src = article["source"]
             if article["url"] not in selected_urls:
-                if source_counts.get(src, 0) < MAX_PER_SOURCE:
+                if not _is_duplicate_topic(article["title"], seen_topic_keys):
                     selected.append(article)
                     selected_urls.add(article["url"])
-                    source_counts[src] = source_counts.get(src, 0) + 1
+                    seen_topic_keys.append(_topic_key(article["title"]))
             if len(selected) == 5:
                 break
 

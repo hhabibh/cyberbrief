@@ -82,9 +82,15 @@ def _rss_excerpt(article: dict) -> str:
     return " ".join(words[:62]) + "…"
 
 
-def generate_tldr(article: dict) -> str:
+# TLDR word targets by weekday (Monday=0 … Friday=4).
+# Monday/Friday feel slightly richer; midweek is punchy.
+_TLDR_WORD_TARGETS = {0: 50, 1: 38, 2: 45, 3: 38, 4: 50}
+
+
+def generate_tldr(article: dict, target_words: int = 45) -> str:
     """
-    Generate a 2-3 sentence, factual TLDR for a single article.
+    Generate a factual TLDR for a single article.
+    target_words controls prose density; caller sets this per-day.
     Uses full article text if available, falls back to RSS summary.
     """
     body = article.get("full_text") or article.get("rss_summary", "")
@@ -95,7 +101,7 @@ def generate_tldr(article: dict) -> str:
         "You are a senior cybersecurity analyst writing a news digest for business leaders and security professionals globally. "
         "Write a single paragraph of continuous prose summarising the article. "
         "Cover: what happened and to whom, the real-world business or operational consequence, and what it signals for the industry. "
-        "STRICT WORD LIMIT: 60 to 70 words. Count every word carefully — stop at 70 words. "
+        f"STRICT WORD LIMIT: {target_words} to {target_words + 8} words. Count every word carefully — do not exceed {target_words + 8} words. "
         "Include specific numbers, figures, or statistics from the article where available (e.g. number of users affected, financial losses, scale of attack). "
         "No bullet points, no headers, no labels. "
         "Global perspective — avoid US-only framing. "
@@ -110,7 +116,7 @@ def generate_tldr(article: dict) -> str:
         f"Article title: {article['title']}\n"
         f"Source: {article['source']}\n\n"
         f"Article text:\n{body}\n\n"
-        "Write the 60-80 word summary:"
+        f"Write the {target_words}–{target_words + 8} word summary:"
     )
 
     try:
@@ -189,18 +195,12 @@ def _qualifies_for_talk_track(article: dict) -> bool:
 
 # Deterministic opener rotation — one per article slot (0-indexed).
 # Model writes ONLY the tail; Python prepends the opener — guaranteed rotation.
-_TALK_TRACK_OPENERS = [
-    ("What",           "what this reveals about your organisation's exposure or readiness"),
-    ("To what extent", "how prepared your organisation is to handle a similar threat"),
-    ("Where",          "where the gaps are in your organisation's defences or processes"),
-    ("Which",          "which parts of your organisation would be most at risk here"),
-    ("How",            "how exposed or resilient your organisation is in this area"),
-]
+_TALK_TRACK_OPENERS = ["What", "To what extent", "Where", "Which", "How"]
 
 
 def generate_talk_track(article: dict, position: int = 0) -> str | None:
     """
-    Generate a single-sentence seller conversation starter for qualifying articles.
+    Generate a short spoken conversation-starter for a qualifying article.
     Returns None if the article doesn't qualify or the Bridge call fails.
     """
     if not _qualifies_for_talk_track(article):
@@ -210,29 +210,35 @@ def generate_talk_track(article: dict, position: int = 0) -> str | None:
     if not tldr:
         return None
 
-    opener_word, theme_hint = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
+    opener_word = _TALK_TRACK_OPENERS[position % len(_TALK_TRACK_OPENERS)]
 
     system_prompt = (
-        "You are a trusted cybersecurity advisor. You've just shared a news story with a client. "
-        "Write the TAIL of an open-ended question — the words that come AFTER the opening word you are given. "
-        "Rules: "
-        "• The full assembled question (opening word + your tail) must be 15–20 words and end with a question mark. "
-        "• Invite the client to reflect on their own organisation's exposure, visibility, or readiness. "
-        "• Be concrete — avoid vague phrases like 'your strategy would adapt', 'your posture holds up', or 'your protocols withstand'. "
-        "• No offer of help, no next steps, no product mentions. Plain British English. "
-        "• Output ONLY the tail — do not include the opening word in your response."
+        "You are a cybersecurity advisor opening a conversation with a customer. "
+        "You will be given an opening word and a news summary. "
+        "Write ONLY the words that follow the opening word to complete a short, direct spoken question. "
+        "The full question (opening word + your tail) must be 8 to 12 words total and end with a question mark. "
+        "The question should invite the customer to reflect on their own organisation — "
+        "not the company in the news story. "
+        "Do NOT use: strategy, posture, landscape, resilience, adapt, withstand, protocols, frameworks. "
+        "Do NOT include the opening word in your output. "
+        "Plain British English. Output ONLY the tail — nothing else.\n\n"
+        "Examples of the correct style (notice: concrete, references testing/detection/visibility/risk, not vague 'steps'):\n"
+        "  What  →  visibility do you have into how customer data is classified and protected?\n"
+        "  To what extent  →  could your team detect this kind of intrusion early?\n"
+        "  Where  →  would a penetration test most likely expose gaps in your credential controls?\n"
+        "  Which  →  of your systems would take longest to recover from a similar attack?\n"
+        "  How  →  regularly does your team audit who has access to your most sensitive accounts?"
     )
 
     user_prompt = (
         f"Article title: {article['title']}\n\n"
         f"Summary: {tldr}\n\n"
-        f"Opening word for the question: '{opener_word}'\n"
-        f"Theme to explore: {theme_hint}\n\n"
-        f"Write ONLY the words that follow '{opener_word}'. Do not write '{opener_word}' itself."
+        f"Opening word: '{opener_word}'\n"
+        f"Write ONLY the words that follow '{opener_word}'."
     )
 
     try:
-        tail = _call_bridge(system_prompt, user_prompt, max_tokens=60).strip()
+        tail = _call_bridge(system_prompt, user_prompt, max_tokens=40).strip()
         # Strip opener if the model included it despite instructions
         if tail.lower().startswith(opener_word.lower()):
             tail = tail[len(opener_word):].lstrip()
@@ -247,8 +253,10 @@ def summarise_all(articles: list[dict]) -> tuple[list[dict], str]:
     Summarise all articles and generate the context line.
     Returns (articles_with_tldrs, context_line).
     """
+    today_weekday = datetime.now(timezone.utc).weekday()  # 0=Mon … 4=Fri
+    target_words = _TLDR_WORD_TARGETS.get(today_weekday, 45)
     for i, article in enumerate(articles):
-        article["tldr"] = generate_tldr(article)
+        article["tldr"] = generate_tldr(article, target_words=target_words)
         article["talk_track"] = generate_talk_track(article, position=i)
 
     context_line = generate_context_line(articles)
